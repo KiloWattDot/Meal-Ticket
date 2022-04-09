@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Navbar from './components/Navbar/index.js';
 import Checkout from './pages/Checkout/index.js'
+// import CartModal from './pages/CartModal/index.js'
 
 
 
@@ -28,7 +29,7 @@ function App() {
               // element={}
             />
             <Route 
-              path="/matchup/:id" 
+              // exact path="/CartModal" element={<CartModal />}
               // element={}
             />
             <Route 

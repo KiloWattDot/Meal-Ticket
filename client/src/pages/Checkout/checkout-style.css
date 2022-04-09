@@ -1,13 +1,23 @@
 
+#root {
+    background-color: #ffc800;
+}
+
 
 .container {
     display: flex;
     margin: 0% 8% !important;
+  
 }
 
+#checkout {
+    /* padding-top: 5%; */
+    margin: 30px 15% !important; 
+}
 .col-xs-5 {
     flex: 1;
-    width: 50%;
+    width: 80%;
+   
 }
 
 .row {
@@ -18,8 +28,9 @@
     border: 1px solid rgb(231, 231, 231);
     border-radius: 8px;
     padding: 16px;
-    margin: 8px 0px;
-
+    margin: 0% 20%;
+    background-color: #000000;
+    color:#ffffff;
 }
 
 hr {
@@ -69,4 +80,59 @@ form label, form .form-label {
     width: 1.2em !important;
     height: 1.2em !important;
 
+}
+.placeOrder {
+    margin: 10px 10px;
+    padding: 0px 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.placeOrder-btn {
+    background-color: #ffc800 !important;
+    color: rgb(58, 58, 58) !important;
+    width: 100% !important;
+    height: 50px !important;
+    border-radius: 0px !important;
+    /* margin: 10px 50px !important; */
+    font-size: 15px !important;
+    
+}
+
+
+.placeOrder-btn:hover {
+    color: white !important;
+    border: rgb(255, 255, 255);
+}
+
+.price {
+    display: flex;
+}
+
+.subtotal .subtotal-amnt {
+    flex: 1;
+}
+
+.subtotal-amnt {
+    padding-left: 30rem;
+}
+
+.tax .tax-amnt {
+    flex: 1;
+}
+
+.tax-amnt {
+    padding-left: 32rem;
+}
+
+.total .total-amnt {
+    flex: 1;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.total-amnt {
+    padding-left: 32rem;
+    font-weight: bold;
 }
