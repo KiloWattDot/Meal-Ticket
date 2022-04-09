@@ -28,7 +28,7 @@
     border: 1px solid rgb(231, 231, 231);
     border-radius: 8px;
     padding: 16px;
-    margin: 0% 20%;
+    margin: 0% 25%;
     background-color: #000000;
     color:#ffffff;
 }
@@ -47,6 +47,7 @@ hr {
 
 .pickup {
     display: flex;
+    justify-content: space-around;
 }
 
 .pickupText .pickupTime{
@@ -93,7 +94,7 @@ form label, form .form-label {
     width: 100% !important;
     height: 50px !important;
     border-radius: 0px !important;
-    /* margin: 10px 50px !important; */
+    margin: 20px 0px !important;
     font-size: 15px !important;
     
 }
@@ -104,8 +105,23 @@ form label, form .form-label {
     border: rgb(255, 255, 255);
 }
 
+.item-image {
+    width: 10%;
+}
+
+.trash-icon {
+    width: 4%;
+    height: 6% !important;
+    cursor: pointer;
+}
+
+.notes {
+    width: 100%;
+}
+
 .price {
     display: flex;
+    /* justify-content: space-around; */
 }
 
 .subtotal .subtotal-amnt {

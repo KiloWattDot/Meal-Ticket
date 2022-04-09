@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 // import logo from "../../image/MealTicket-Logo(no bg).png"
 import "./checkout-style.css";
-
+import wings from '../../image/wingsnfries.jpeg'
+import trash from '../../image/trash.png'
 import { Container, Form, Button, Card } from "react-bootstrap";
 import map from "../../image/themap.PNG";
 
@@ -93,15 +94,15 @@ function Checkout() {
             <div className="cart-box">
               <h3>Your items</h3>
               <div className="pickup">
-                <img className="item-image" src="#"></img>
+                <img className="item-image" src={wings}></img>
                 <p>Wings Meal (Fries and Drink)</p>
-                <img className="item-image" src="#"></img>
+                <img className="trash-icon" src={trash} onClick={handleSubmit}></img>
               </div>
             </div>
 
             <Form>
               <Form.Group
-                className="mb-3"
+                className="mb-3 notes"
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Notes</Form.Label>
