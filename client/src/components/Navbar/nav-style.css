@@ -1,0 +1,196 @@
+/* NAVBAR STYLING ************************/
+/* NAVBAR STYLING ************************/
+/* NAVBAR STYLING ************************/
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  /* h1 styling for the whole page */
+  .logo {
+    margin: 2%;
+    width: 10%;
+    /* font-size: 200%; */
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+  
+  }
+  
+  
+  /* The Navigation has 
+     */
+     .navbar {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgb(0, 0, 0);
+      color: #ffffff;
+      align-items: center;
+      padding: 0px 0px;
+    
+    }
+  
+    .navList {
+      /* text-decoration-line: underline; */
+      font-weight: bold;
+      font-family: 'Work Sans', sans-serif;
+      list-style: none;
+      color: #ffffff;
+      margin: 0px 0px;
+      text-decoration: none;
+    }
+    
+    /* The links within the Navigation
+        color is set to a whitish color and bold
+     */
+    .navList .list-item{
+      margin-left: -10px;
+      padding: 20px 20px;
+      display: inline-block;
+      font-size: 22px; 
+      list-style: none;
+  
+      
+    }
+    .navbar a {
+      color: white ;
+      text-decoration: none;
+  
+      
+    }
+  
+    .navbar a:hover{
+      color: #F5BF00;
+    }
+  
+    .menu-line {
+      width: 20px;
+      height: 3px;
+      background-color: #F5BF00;
+      margin-bottom: 4px;;
+    
+    }
+  
+    .menu {
+      display: none;
+    }
+  
+  
+    @media all and (max-width: 1024px) {
+  
+      h1 {
+        font-size: 135%;
+      }
+      .navList .list-item{
+        margin-left: -0px;
+        font-size: 15px; 
+        padding: 10px 10px;
+      }
+  
+      h1 {
+        margin: 2%;
+        font-size: 100%;
+      }
+    }
+  
+  
+  
+
+    @media all and (max-width: 720px) {
+      .navbar {
+        flex-direction: column;
+  
+      }
+      .menu {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+      }
+  
+      .navList {
+        /* text-decoration-line: underline; */
+        width: 100%;
+        text-align: center;
+        padding-top: 5px;
+        list-style: none;
+        display: none;
+        text-decoration: none;
+      }
+      
+  
+      .navList .list-item {
+        display: block;
+        border-top: 2px solid #F5BF00;
+        padding: 10px;
+        font-size: 15px; 
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+      }
+  
+      h1 {
+        width: 100%;
+      
+      }
+      #active {
+        display: block;
+  
+      }
+  
+  
+    }
+    
+  
+    @media all and (max-width: 1047px) {
+      .navbar {
+        display: flex;
+        
+   
+        color: #ffffff;
+        align-items: center;
+        padding: 0px 0px;
+      
+      }
+      .menu {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+      }
+  
+      .navList {
+        /* text-decoration-line: underline; */
+        width: 100%;
+        text-align: center;
+        padding-top: 5px;
+        list-style: none;
+        display: none;
+        text-decoration: none;
+      }
+      
+  
+      .navList .list-item{
+        display: block;
+        border-top: 2px solid #F5BF00;
+        padding: 10px;
+        font-size: 15px; 
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+      }
+  
+      h1 {
+        width: 50%;
+      
+      }
+      #active {
+        display: block;
+  
+      }
+  
+  
+    }
+    

@@ -1,0 +1,72 @@
+
+
+.container {
+    display: flex;
+    margin: 0% 8% !important;
+}
+
+.col-xs-5 {
+    flex: 1;
+    width: 50%;
+}
+
+.row {
+    width: 100%;
+}
+
+.displayOrder {
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px 0px;
+
+}
+
+hr {
+    height: 5px;
+    background-color: rgb(226, 226, 226);
+    margin: 0px 0px 24px
+
+;
+}
+
+.loctext {
+    font-weight: bold;
+}
+
+.pickup {
+    display: flex;
+}
+
+.pickupText .pickupTime{
+    flex: 1;
+}
+
+.pickupTime {
+    padding-left: 15rem;
+}
+
+
+.nowOrlater {
+    list-style: none;
+}
+.nowOrlater-list {
+    font-size: 30px;
+     padding: 0px 20px;
+}
+
+.form-check .form-check-input {
+   
+    margin-top: 1.4rem !important;
+}
+
+form label, form .form-label {
+    font-size: 1.8rem !important;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+
+.form-check-input {
+    width: 1.2em !important;
+    height: 1.2em !important;
+
+}
