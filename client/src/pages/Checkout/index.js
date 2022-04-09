@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import "./checkout-style.css";
 import wings from '../../image/wingsnfries.jpeg'
 import trash from '../../image/trash.png'
-import { Container, Form, Button, Card } from "react-bootstrap";
+import { Container, Form, Button, Modal, Tab } from "react-bootstrap";
 import map from "../../image/themap.PNG";
 
 function Checkout() {
   const [order, setOrder] = useState("");
-
+  const [showLaterModal, setshowLaterModal] = useState(false);
+  const [showNowrModal, setshowNowModal] = useState(false);
   // var newName = localStorage.getItem("name");
 
   // const handleInput = (e) => {
@@ -40,6 +41,7 @@ function Checkout() {
   };
 
   return (
+   
     <Container id="checkout">
         <div className="displayOrder">
             <h1>American Deli</h1>
@@ -67,17 +69,20 @@ function Checkout() {
                     label={`Now`}
                     id={`Now-${type}`}
                   />
+
+                  {/* FIX THE RADIO BUTTON FUNCTIONALITY */}
                   <Form.Check
                     active
                     type={type}
                     label={`Later`}
                     id={`Later-${type}`}
+                    onClick={() => setshowLaterModal(true)}
                   />
                 </div>
               ))}
             </Form>
             <hr></hr>
-
+                        {/* ADD EDIT BUTTON */}
             <div>
               <h3 className="paymentTitle">Payment</h3>
               <div className="addPayment">
@@ -90,13 +95,14 @@ function Checkout() {
                 <hr></hr>
               </div>
             </div>
-
+                {/* FIX YOUR ITEMS FORMATTING */}
             <div className="cart-box">
               <h3>Your items</h3>
               <div className="pickup">
                 <img className="item-image" src={wings}></img>
                 <p>Wings Meal (Fries and Drink)</p>
-                <img className="trash-icon" src={trash} onClick={handleSubmit}></img>
+                {/* CHANGE THE TRASH FUNCTION */}
+                <img className="trash-icon" src={trash} onClick={() => setshowNowModal(true)}></img>
               </div>
             </div>
 
@@ -144,8 +150,48 @@ function Checkout() {
             </div>
             
           </div>
+          <Modal
+            size='sm'
+            show={showLaterModal}
+            onHide={() => setshowLaterModal(false)}
+            aria-labelledby='signup-modal'>
+            {/* tab container to do either signup or login component */}
+            <Tab.Container defaultActiveKey='login'>
+              <Modal.Header closeButton>
+                <Modal.Title id='signup-modal'>
+                  Hello
+                </Modal.Title>
+              </Modal.Header>
+            </Tab.Container>
+          </Modal>
+
+          <Modal
+            size='sm'
+            show={showNowrModal}
+            onHide={() => setshowNowModal(false)}
+            aria-labelledby='signup-modal'>
+            {/* tab container to do either signup or login component */}
+            <Tab.Container defaultActiveKey='login'>
+              <Modal.Header closeButton>
+                <Modal.Title id='signup-modal'>
+                  Hello
+                </Modal.Title>
+              </Modal.Header>
+            </Tab.Container>
+          </Modal>
     </Container>
+
+    
+    
+
   );
 }
 
 export default Checkout;
+
+// TO DO:
+// {/* FIX THE RADIO BUTTON FUNCTIONALITY */}
+// {/* ADD EDIT BUTTON */}
+// {/* CHANGE THE TRASH FUNCTION */}
+// {/* FIX YOUR ITEMS FORMATTING */}
+// FIX TOTAL FORMATTING & CREATE FUNCTION THAT ADDS UP TOTAL
