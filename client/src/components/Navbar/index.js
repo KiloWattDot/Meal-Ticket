@@ -20,38 +20,28 @@ function Navbar() {
 
     return ( 
       
-
-        <nav className='navbar'>
-            <img className="logo" src={logo} alt="Meal Ticket Logo"></img>
-            <ul className= 'navList' id={toggle ? 'active' : ''} >
-                <li className='list-item'>
-                     <a href="#welcome">Home</a>
-                </li>
-                <li className='list-item'>
-                    <a href="#bio">About</a>
-                </li>
-
-                <li className='list-item'>
-                    <a href="#experience">Experience</a>
-                </li>
+           <div> 
+                 <img className="logo" src={logo} alt="Meal Ticket Logo"></img>
+                <nav className="">
                 
-                
-                <li className='list-item'>
-                    <a  href="#contact">Contact</a>
-                </li>
-               
-                
-            
-            </ul>
+                    <ul className= 'navList' id={toggle ? 'active' : ''} >
+                        
+                        <a href="#"><li>Home</li></a>
+                        <a href="#"><li>Order Now </li></a>
+                        <a href="#"><li>Cart</li></a>
+                        <a href="#"><li>Login</li></a>
+                        <input type="text" placeholder="Enter Zipcode"></input>
+                        
+                    </ul>
 
-            <div className='menu' onClick={handleToggle} >
-                <div className='menu-line'></div>
-                <div className='menu-line'></div>
-                <div className='menu-line'></div>
-            </div>
-        </nav>
+                    <div className='menu' onClick={handleToggle} >
+                        <div className='menu-line'></div>
+                        <div className='menu-line'></div>
+                        <div className='menu-line'></div>
+                    </div>
+                </nav>
  
-        
+            </div>
     );
 
 }
