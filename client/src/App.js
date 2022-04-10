@@ -1,6 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import Navbar from './components/Navbar/index.js';
+import Checkout from './pages/Checkout/index.js'
+// import CartModal from './pages/CartModal/index.js'
+
+
 
 
 const client = new ApolloClient({
@@ -11,20 +16,20 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <h1> HEllo</h1> 
+      <Navbar />
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <div className=" justify-center align-center min-100-vh">
           <Routes>
             <Route 
               path="/" 
               // element={<Home />}
             />
             <Route 
-              path="/matchup" 
+              exact path="/checkout"  element={<Checkout />}
               // element={}
             />
             <Route 
-              path="/matchup/:id" 
+              // exact path="/CartModal" element={<CartModal />}
               // element={}
             />
             <Route 
