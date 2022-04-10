@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Navbar from './components/Navbar/index.js';
 import Checkout from './pages/Checkout/index.js'
-// import CartModal from './pages/CartModal/index.js'
-
+import ItemSect from './components/Item-Section/index.js'
+import MenuTest from './pages/MenuTest/index.js'
+import OrderModal from './components/Order-modal/index.js';
 
 
 
@@ -29,7 +30,15 @@ function App() {
               // element={}
             />
             <Route 
-              // exact path="/CartModal" element={<CartModal />}
+              exact path="/items" element={<ItemSect />}
+              // element={}
+            />
+            <Route 
+              exact path="/menutest" element={<MenuTest />}
+              // element={}
+            />
+            <Route 
+              exact path="/ordermodal" element={<OrderModal />}
               // element={}
             />
             <Route 

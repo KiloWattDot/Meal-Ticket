@@ -1,18 +1,17 @@
-
+/* 
 #root {
     background-color: #ffc800;
-}
+} */
 
 
 .container {
     display: flex;
-    margin: 0% 8% !important;
+    
   
 }
 
 #checkout {
-    /* padding-top: 5%; */
-    /* margin: 30px 10% !important;  */
+    margin: 0% -10% !important;
 }
 .col-xs-5 {
     flex: 1;
@@ -96,8 +95,8 @@ form label, form .form-label {
 }
 
 .placeOrder-btn {
-    background-color: #ffc800 !important;
-    color: rgb(58, 58, 58) !important;
+    background-color: goldenrod !important;
+    color: rgb(255, 221, 143) !important;
     width: 100% !important;
     height: 50px !important;
     border-radius: 0px !important;
