@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Navbar from './components/Navbar/index.js';
-import Checkout from './pages/Checkout/index.js'
+// import Checkout from './pages/Checkout/index.js'
 // import CartModal from './pages/CartModal/index.js'
 
 
@@ -25,7 +25,7 @@ function App() {
               // element={<Home />}
             />
             <Route 
-              exact path="/checkout"  element={<Checkout />}
+              // exact path="/checkout"  element={<Checkout />}
               // element={}
             />
             <Route 
