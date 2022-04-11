@@ -73,6 +73,7 @@ const Results = () => {
       id: food.id,
       image_url: food.image_url,
       foodname: food.name,
+      
     
     }));
 
