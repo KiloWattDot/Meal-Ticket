@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { Row, Col, Container, NavDropdown, Form, FormControl, Button  } from 'react-bootstrap';
+import { Row, Col, Container, Button  } from 'react-bootstrap';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -12,14 +12,10 @@ import { QUERY_FAV } from '../utils/queries';
 import { REMOVE_FAV } from '../utils/mutations';
 
 
-
-
-
 function Fav() {
 
-  const [favs, setFavs] = useState()
-
-  const navigate = useNavigate();
+  // const [favs, setFavs] = useState()
+  // const navigate = useNavigate();
 
   const { loading, data } = useQuery(QUERY_FAV);
   const [removeFav, { error }] = useMutation(REMOVE_FAV);
@@ -30,12 +26,11 @@ function Fav() {
 
      try {
       const { data } = await removeFav({
-
         variables: { did: id },
       });
       // alert("FAV DELETED")
       console.log(data);
-      setFavs(data)
+      // setFavs(data)
     } catch (err) {
       console.error(err);
     }
@@ -45,34 +40,17 @@ function Fav() {
   };
 
   // useEffect(() => {
-
     // getResults(params.id)
     // alert("test")
     // window.location.reload()
-  
   //  }, [favs]);
 
   
-if (loading) {
-  
-  
-
-  // console.log (data.savedRest)
-  // console.log (data.savedRest[0].name)
-
-  // const test = data
-
-// setFavs(data.savedRest)
-  return (
-    
-    <h1>LOADING</h1>
-   
-  )
-}
+if (loading) {return ( <h1>LOADING</h1>)}
 
 else {
 
-  console.log (data.savedRest)
+  // console.log (data.savedRest)
   const test = data.savedRest
   
   return (
@@ -80,13 +58,9 @@ else {
 
      <h1> Your Favs</h1>
 
-     {/* <h1>{test[1].name} </h1> */}
-
      {test.map((item, index) => {
     
     return  ( 
-  
- 
   
       <div key={index} >
     <Row   className=' my-5 shadow-lg p-4 bg-white border border-5 border-dark'>
@@ -101,7 +75,6 @@ else {
           <h1>{item.name}</h1>
           {/* <p>{item.location.address1}</p> */}
           <Button onClick={() => handleDeleteFav(item.resid)} variant="warning" >REMOVE</Button>
-          {/* onClick={() => handleDeleteFav(item.resid)} */}
           <Link to= {"/choice/"+item.resid}>
           <Button  variant="warning" >SELECT</Button>
           </Link>

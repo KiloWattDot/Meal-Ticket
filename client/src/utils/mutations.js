@@ -2,10 +2,6 @@ import { gql } from '@apollo/client';
 
 
 
-
-
-
-
 export const CREATE_Rest = gql`
 mutation SaveBook($resid: String!, $imageurl: String, $name: String) {
   saveBook(resid: $resid, imageurl: $imageurl, name: $name) {
@@ -27,14 +23,3 @@ mutation Mutation($did: String!) {
 }
 `;
 
-export const CREATE_VOTE = gql`
-  mutation createVote($_id: String!, $techNum: Int!) {
-    createVote(_id: $_id, techNum: $techNum) {
-      _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
-    }
-  }
-`;

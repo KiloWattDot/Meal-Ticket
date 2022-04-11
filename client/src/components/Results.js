@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { Row, Col, Container, NavDropdown, Form, FormControl, Button  } from 'react-bootstrap';
+import { Row, Col, Container, Button  } from 'react-bootstrap';
 
 import { Link, useParams } from 'react-router-dom';
 
@@ -19,34 +19,20 @@ const Results = () => {
 
   const [saveBook, { error }] = useMutation(CREATE_Rest);
 
-  
   let params = useParams();
 
 
 
   const handleSaveFood = async (foodId) => {
-    // find the book in `searchedBooks` state by the matching id
+    
     const foodToSave = results.find((food) => food.id === foodId);
-
-
-   
-
-
-    // // get token
-    // const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    // if (!token) {
-    //   return false;
-    // }
 
     try {
       const { data } = await saveBook({
-        // variables:   {id, image_url, foodname}=foodToSave ,
         variables: { resid: foodToSave.id, imageurl: foodToSave.image_url, name: foodToSave.foodname  },
       });
-      // alert("Added to FAV")
-      console.log(data);
-      // setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+      
+      // console.log(data);
     } catch (err) {
       console.error(err);
     }
@@ -54,20 +40,11 @@ const Results = () => {
 
 
 
-
-
  const getResults = async (id) => {
 
-  await axios.get (`https://yelp-backend.netlify.app/.netlify/functions/search?term=restaurant&location=${id}`
-   
-   )
+  await axios.get (`https://yelp-backend.netlify.app/.netlify/functions/search?term=restaurant&location=${id}`)
    
    .then(data => {
-    //  console.log(data)
-    //  console.log(data.data)
-    //  console.log(data.data.businesses)
-    //  console.log(data.data.businesses[0].name)
-
 
     const foodData = data.data.businesses.map((food) => ({
       id: food.id,
@@ -76,17 +53,13 @@ const Results = () => {
     
     }));
 
-
-
-
      setResults(foodData)
-     console.log (results)
+    //  console.log (results)
  
- }).catch (err => {
+    }).catch (err => {
      console.log(err)
- })
- } 
-
+    })
+    } 
 
 
  useEffect(() => {
@@ -94,8 +67,6 @@ const Results = () => {
   getResults(params.id)
 
  }, [params.id]);
-
-
 
 
 return (
@@ -108,9 +79,6 @@ return (
 {results.map((item, index) => {
 
   return  ( 
-
-
-
 
     <div key={index} >
   <Row   className=' my-5 shadow-lg p-4 bg-white border border-5 border-dark'>

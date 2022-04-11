@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 
 import {
   Container,
   Col,
-  Row,
-  Navbar,
-  Form,
-  Button,
-  Card,
-  CardColumns
-
+  Row
 } from "react-bootstrap";
 
 const Home = () => {
