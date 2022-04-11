@@ -5,6 +5,11 @@ import wings from '../../image/wingsnfries.jpeg'
 import trash from '../../image/trash.png'
 import { Container, Form, Button, Modal, Tab } from "react-bootstrap";
 import map from "../../image/themap.PNG";
+import {FaMapPin} from "react-icons/fa";
+import {FaRegClock} from "react-icons/fa";
+import {FaRegCreditCard} from "react-icons/fa";
+import {FaTag} from "react-icons/fa";
+import {FaTrashAlt} from "react-icons/fa";
 
 function Checkout() {
   const [order, setOrder] = useState("");
@@ -47,28 +52,28 @@ function Checkout() {
             <h1>American Deli</h1>
             <img src={map} className="map"></img>
             <p className="loctext">
-              {" "}
-              (icon)3695 Cascade Rd. , Suite M, Atlanta, GA 30331
+              <FaMapPin /> 695 Cascade Rd. , Suite M, Atlanta, GA 30331
             </p>
             <hr></hr>
             <div className="pickup">
               <div className="pickupText">
-                <h3>(icon)Pick Estimate</h3>
+                <h3>Pick Estimate</h3>
               </div>
               <div className="pickupTime">
                 <h3>5-10min</h3>
               </div>
             </div>
 
-            <Form>
+            <Form className="schedule-order">
               {["radio"].map((type) => (
-                <div key={`default-${type}`} className="mb-3">
+                <div key={`default-${type}`} className="mb-3 hey">
                   <Form.Check
                     active
                     type={type}
                     label={`Now`}
                     id={`Now-${type}`}
                   />
+                  <hr className="schedule-line"></hr>
 
                   {/* FIX THE RADIO BUTTON FUNCTIONALITY */}
                   <Form.Check
@@ -80,33 +85,34 @@ function Checkout() {
                   />
                 </div>
               ))}
+              
             </Form>
             <hr></hr>
                         {/* ADD EDIT BUTTON */}
-            <div>
+            <div className="pay-promo">
               <h3 className="paymentTitle">Payment</h3>
               <div className="addPayment">
-                <h4>Add payment method</h4>
+                <h4><FaRegCreditCard /> Add payment method</h4>
                 <hr></hr>
               </div>
 
               <div className="addPromo">
-                <h4>Add Promo code</h4>
+                <h4><FaTag /> Add Promo code</h4>
                 <hr></hr>
               </div>
             </div>
                 {/* FIX YOUR ITEMS FORMATTING */}
             <div className="cart-box">
-              <h3>Your items</h3>
+              <h3 className="your-items">Your items</h3>
               <div className="pickup">
                 <img className="item-image" src={wings}></img>
                 <p>Wings Meal (Fries and Drink)</p>
                 {/* CHANGE THE TRASH FUNCTION */}
-                <img className="trash-icon" src={trash} onClick={() => setshowNowModal(true)}></img>
+                <FaTrashAlt className="trash-icon" src={trash} onClick={() => setshowNowModal(true)} />
               </div>
             </div>
 
-            <Form>
+            <Form className="notes-box">
               <Form.Group
                 className="mb-3 notes"
                 controlId="exampleForm.ControlTextarea1"

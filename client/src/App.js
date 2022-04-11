@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import "react-icons/";
 import Navbar from './components/Navbar/index.js';
 import Checkout from './pages/Checkout/index.js'
 import ItemSect from './components/Item-Section/index.js'
-import MenuTest from './pages/MenuTest/index.js'
-import OrderModal from './components/Order-modal/index.js';
+// import MenuTest from './pages/MenuTest/index.js'
+// import OrderModal from './components/Order-modal/index.js';
 
 
 
@@ -34,11 +35,11 @@ function App() {
               // element={}
             />
             <Route 
-              exact path="/menutest" element={<MenuTest />}
+              // exact path="/menutest" element={<MenuTest />}
               // element={}
             />
             <Route 
-              exact path="/ordermodal" element={<OrderModal />}
+              // exact path="/ordermodal" element={<OrderModal />}
               // element={}
             />
             <Route 
