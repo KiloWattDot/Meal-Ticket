@@ -3,18 +3,39 @@ import React, { useState } from "react";
 import "./checkout-style.css";
 import wings from '../../image/wingsnfries.jpeg'
 import trash from '../../image/trash.png'
-import { Container, Form, Button, Modal, Tab } from "react-bootstrap";
+import { Container, Form, Button, Modal, Tab, Dropdown, DropdownButton } from "react-bootstrap";
 import map from "../../image/themap.PNG";
 import {FaMapPin} from "react-icons/fa";
 import {FaRegClock} from "react-icons/fa";
 import {FaRegCreditCard} from "react-icons/fa";
 import {FaTag} from "react-icons/fa";
 import {FaTrashAlt} from "react-icons/fa";
+import moment from 'moment' 
+
 
 function Checkout() {
   const [order, setOrder] = useState("");
   const [showLaterModal, setshowLaterModal] = useState(false);
   const [showNowrModal, setshowNowModal] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showPromoModal, setShowPromoModal] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  let today = moment().format('LL')
+  let secondDay = moment().add(1, 'days').calendar();
+  let thirdDay = moment().add(2, 'days').calendar();
+  let fourthDay = moment().add(3, 'days').calendar();
+  let fifthDay = moment().add(4, 'days').calendar();
+  
+  console.log(today)
+  console.log(secondDay)
+  console.log(thirdDay)
+  console.log(fourthDay)
+  console.log(fifthDay)
+  // let tom = todaysDate.add(2, 'd')
   // var newName = localStorage.getItem("name");
 
   // const handleInput = (e) => {
@@ -57,7 +78,7 @@ function Checkout() {
             <hr></hr>
             <div className="pickup">
               <div className="pickupText">
-                <h3>Pick Estimate</h3>
+                <h3>Pickup Estimate</h3>
               </div>
               <div className="pickupTime">
                 <h3>5-10min</h3>
@@ -93,11 +114,13 @@ function Checkout() {
               <h3 className="paymentTitle">Payment</h3>
               <div className="addPayment">
                 <h4><FaRegCreditCard /> Add payment method</h4>
+                <button  onClick={() => setShowPaymentModal(true)} className="edit-btn-1">Edit </button>
                 <hr></hr>
               </div>
 
               <div className="addPromo">
                 <h4><FaTag /> Add Promo code</h4>
+                <button className="edit-btn-2" onClick={() => setShowPromoModal(true)}>Edit </button>
                 <hr></hr>
               </div>
             </div>
@@ -111,6 +134,8 @@ function Checkout() {
                 <FaTrashAlt className="trash-icon" src={trash} onClick={() => setshowNowModal(true)} />
               </div>
             </div>
+
+            <hr></hr>
 
             <Form className="notes-box">
               <Form.Group
@@ -160,7 +185,56 @@ function Checkout() {
             size='sm'
             show={showLaterModal}
             onHide={() => setshowLaterModal(false)}
-            aria-labelledby='signup-modal'>
+            aria-labelledby="contained-modal-title-vcenter"
+            centered>
+            {/* tab container to do either signup or login component */}
+            <Tab.Container defaultActiveKey='login'>
+              <Modal.Header closeButton>
+                <Modal.Title id='signup-modal'> Pick a Time
+                <Dropdown>
+                    <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+                    Today {today}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu variant="dark">
+                      <Dropdown.Item href="#/action-1" active>
+                       Today {today}
+                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-2"> {secondDay}</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">{thirdDay}</Dropdown.Item>
+                      <Dropdown.Item href="#/action-4">{fourthDay}</Dropdown.Item>
+                      <Dropdown.Item href="#/action-4">{fifthDay}</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
+                  {/* <DropdownButton
+                    id="dropdown-button-dark-example2"
+                    variant="secondary"
+                    menuVariant="dark"
+                    title="Dropdown button"
+                    className="mt-2"
+                  >
+                    <Dropdown.Item href="#/action-1" active>
+                      Action
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+                  </DropdownButton> */}
+
+                  <Button>Schedule</Button>
+                </Modal.Title>
+              </Modal.Header>
+            </Tab.Container>
+          </Modal>
+
+          <Modal
+            size='sm'
+            show={showNowrModal}
+            onHide={() => setshowNowModal(false)}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered>
             {/* tab container to do either signup or login component */}
             <Tab.Container defaultActiveKey='login'>
               <Modal.Header closeButton>
@@ -173,18 +247,52 @@ function Checkout() {
 
           <Modal
             size='sm'
-            show={showNowrModal}
-            onHide={() => setshowNowModal(false)}
-            aria-labelledby='signup-modal'>
+            show={showPaymentModal}
+            onHide={() => setShowPaymentModal(false)}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered>
             {/* tab container to do either signup or login component */}
             <Tab.Container defaultActiveKey='login'>
               <Modal.Header closeButton>
-                <Modal.Title id='signup-modal'>
-                  Hello
-                </Modal.Title>
+                <Modal.Title id='addpayment-modal'> Add payment method</Modal.Title>
               </Modal.Header>
             </Tab.Container>
           </Modal>
+
+
+          <Modal
+            size='sm'
+            show={showPromoModal}
+            onHide={() => setShowPromoModal(false)}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered>
+            {/* tab container to do either signup or login component */}
+            <Tab.Container defaultActiveKey='login'>
+              <Modal.Header closeButton>
+                {/* <Modal.Title id='signup-modal'>Have a promo code?</Modal.Title> */}
+              </Modal.Header>
+              <Modal.Body>
+                  <Form>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Label>Have a promo code?</Form.Label>
+                      <Form.Control
+                        type="promo"
+                        placeholder="Add promo code"
+                        autoFocus
+                      />
+                    </Form.Group>
+                                     </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="primary" onClick={handleClose}>
+                    Apply
+                  </Button>
+                </Modal.Footer>
+            </Tab.Container>
+          </Modal>
+
+
+
     </Container>
 
     

@@ -39,9 +39,9 @@
 hr {
     height: 5px;
     background-color: rgb(226, 226, 226);
-    margin: 0px 0px 24px
+    margin: 0px 0px 24px;
+    background-color: rgb(255, 195, 42) !important;
 
-;
 }
 .map {
     width: 100%;
@@ -69,7 +69,9 @@ hr {
 
 .schedule-line {
     margin-left: 5px;
-    width: 95%;
+    width: 94%;
+    /* border: 3px solid goldenrod; */
+    background-color: gold;
 }
 
 .schedule-order{
@@ -94,6 +96,7 @@ form label, form .form-label {
 
 .pay-promo {
     margin: 0px 10px;
+    
 }
 
 .paymentTitle {
@@ -101,9 +104,26 @@ form label, form .form-label {
 }
 .addPayment {
     margin: 30px 35px;
+    display: flex;
+    flex: 1;
 }
 .addPromo {
     margin: 30px 35px;
+    display: flex;
+    flex: 1;
+}
+.edit-btn-1, .edit-btn-2 {
+    margin-left: 55%;
+    padding: 0px 15px;
+    font-size: 12px;
+    border-radius: 10px !important;
+    background-color: goldenrod !important;
+    color: white;
+    font-weight: bold
+}
+
+.edit-btn-2 {
+    margin-left: 61%;
 }
 
 .your-items {
