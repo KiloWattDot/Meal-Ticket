@@ -1,12 +1,24 @@
 
+import React, { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+import { Row, Col, Container, Button  } from 'react-bootstrap';
 
 
-import { Row, Col, Container, NavDropdown, Form, FormControl, Button  } from 'react-bootstrap';
+
+const Choice = ({holder}) => {
+
+const [containChoice, setContainChoice] = useState([])
+  
+  // setContainChoice(holder)
+  // let item = holder
+  console.log(holder)
 
 
+  useEffect(() => {
 
-const Choice = () => {
-
+    setContainChoice(holder)
+  
+   }, []);
 
 return (
 
@@ -15,10 +27,10 @@ return (
     
     <img width="auto" height="300"
       className=" mt-3 rounded border border-3 mx-auto d-block "
-      src={"https://th.bing.com/th/id/R.46c2726825537e028da5d4cc13a1d897?rik=vaSJxALonWee5g&pid=ImgRaw&r=0"}
+      src={containChoice.image_url}
       alt="First slide"
     />
- <h1 className='display-1 text-center my-1'>{}</h1>
+ <h1 className='display-1 text-center my-1'>{containChoice.foodname}</h1>
 
 <Container>
 <Row className=' my-3 shadow-lg p-4 bg-white border border-5 border-dark'>
@@ -43,7 +55,7 @@ return (
       </Col>
 
       <Col className="my-auto col-md-1">
-      <Button variant="warning" href="choice">Select</Button>
+      <Button variant="warning" >Select</Button>
       </Col>
     </Row>
 </Container>

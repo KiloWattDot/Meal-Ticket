@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 
 import { Row, Col, Container, Button  } from 'react-bootstrap';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+
+// import { useNavigate, NavLink } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -13,31 +15,15 @@ import { CREATE_Rest } from '../utils/mutations';
 
 
 
-const Results = () => {
+const Results = ({setHolder}) => {
+
+  const navigate = useNavigate();
 
   const [results, setResults] = useState([])
 
   const [saveBook, { error }] = useMutation(CREATE_Rest);
 
   let params = useParams();
-
-
-
-  const handleSaveFood = async (foodId) => {
-    
-    const foodToSave = results.find((food) => food.id === foodId);
-
-    try {
-      const { data } = await saveBook({
-        variables: { resid: foodToSave.id, imageurl: foodToSave.image_url, name: foodToSave.foodname  },
-      });
-      
-      // console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
 
 
  const getResults = async (id) => {
@@ -55,11 +41,37 @@ const Results = () => {
 
      setResults(foodData)
     //  console.log (results)
- 
+
     }).catch (err => {
      console.log(err)
     })
     } 
+
+
+    const handleSaveFood = async (foodId) => {
+    
+      const foodToSave = results.find((food) => food.id === foodId);
+  
+      try {
+        const { data } = await saveBook({
+          variables: { resid: foodToSave.id, imageurl: foodToSave.image_url, name: foodToSave.foodname  },
+        });
+        
+        // console.log(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  
+
+    const handleSelect = (id) =>{ 
+
+      const foodSelected = results.find((food) => food.id === id);
+
+      setHolder(foodSelected)
+      navigate (`/choice/`+id)
+    };
+
 
 
  useEffect(() => {
@@ -93,9 +105,9 @@ return (
         <h1>{item.foodname}</h1>
         {/* <p>{item.location.address1}</p> */}
         <Button onClick={() => handleSaveFood(item.id)} variant="warning" >Fav</Button>
-        <Link to= {"/choice/"+item.id}>
-        <Button  variant="warning" >SELECT</Button>
-        </Link>
+        {/* <Link to= {"/choice/"+item.id}> */}
+        <Button onClick={() => handleSelect(item.id)}  variant="warning" >SELECT</Button>
+        {/* </Link> */}
       </Col>
     </Row>
     </div>
