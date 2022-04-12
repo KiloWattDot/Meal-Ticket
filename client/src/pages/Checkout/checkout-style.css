@@ -143,6 +143,10 @@ form label, form .form-label {
     cursor: pointer;
 }
 
+.quantity-bx {
+    width: 15%;
+}
+
 .notes {
     width: 95%;
     margin: 30px 20px;

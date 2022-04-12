@@ -4,6 +4,7 @@ import burger from './imgm/burger.jpeg'
 import taco from './imgm/taco.png'
 import waffle from './imgm/The-Most-Popular-Menu-Items-That-You-should-Consider-Adding-to-Your-Restaurant_Content-image1-min-1024x569.webp'
 
+
 function ItemSection () {
 
 
@@ -24,7 +25,10 @@ function ItemSection () {
             <h4 className="item-title">Pancakes</h4>
             <button>Order</button>
             </div>
+           
         </section>
+
+        
     )
 }
 

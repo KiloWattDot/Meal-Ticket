@@ -13,6 +13,7 @@ import {FaTrashAlt} from "react-icons/fa";
 import moment from 'moment' 
 
 
+
 function Checkout() {
   const [order, setOrder] = useState("");
   const [showLaterModal, setshowLaterModal] = useState(false);
@@ -21,8 +22,9 @@ function Checkout() {
   const [showPromoModal, setShowPromoModal] = useState(false);
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handlePromoClose = () => setShowPromoModal(false);
+  const handleLaterClose = () => setshowLaterModal(false);
+
 
   let today = moment().format('LL')
   let secondDay = moment().add(1, 'days').calendar();
@@ -30,45 +32,26 @@ function Checkout() {
   let fourthDay = moment().add(3, 'days').calendar();
   let fifthDay = moment().add(4, 'days').calendar();
   
-  console.log(today)
-  console.log(secondDay)
-  console.log(thirdDay)
-  console.log(fourthDay)
-  console.log(fifthDay)
-  // let tom = todaysDate.add(2, 'd')
-  // var newName = localStorage.getItem("name");
 
-  // const handleInput = (e) => {
-  //     const {target} = e;
-  //     const inputType = target.name
-  //     const inputValue = target.value
-
-  //     if (inputType === 'email') {
-  //         setContactEmail(inputValue);
-  //       } else if (inputType === 'name') {
-  //         setContactName(inputValue);
-  //       } else {
-  //         setContactMessage(inputValue);
-  //       }
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // function to check valid email
+  
 
     alert(
       `Thank you ${order} for contacting  me. I will get back to you shortly...`
     );
 
-    // set name, email, message
-    // save to local storage
 
     setOrder("");
   };
 
   return (
+
+   
    
     <Container id="checkout">
+       
         <div className="displayOrder">
             <h1>American Deli</h1>
             <img src={map} className="map"></img>
@@ -223,7 +206,7 @@ function Checkout() {
                     <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
                   </DropdownButton> */}
 
-                  <Button>Schedule</Button>
+                  <Button onClick={handleLaterClose}>Schedule</Button>
                 </Modal.Title>
               </Modal.Header>
             </Tab.Container>
@@ -284,7 +267,7 @@ function Checkout() {
                                      </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="primary" onClick={handleClose}>
+                  <Button variant="primary" onClick={handlePromoClose}>
                     Apply
                   </Button>
                 </Modal.Footer>
