@@ -2,3 +2,23 @@
     display: flex;
     align-items: center;
 }
+
+.rating-part > * {
+    margin-right: 10px;
+}
+
+.rating-part  {
+    font-size: .9rem;
+}
+
+.address-space{
+    margin-top: 18%;
+}
+
+.tag button{
+    padding: 4px;
+    border-radius: 4px;
+    /* height: 20px; */
+    border: 0;
+
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
+import "../utils/rating.css";
 import { FaStar } from "react-icons/fa";
 
 import {
@@ -117,25 +118,24 @@ const Results = () => {
                 <h1>{item.name}</h1>
                 <div>
                   <p>{item.operation}</p>
-
-                  <Rating 
-                    emptySymbol="far fa-star" 
-                    fullSymbol="fas fa-star" 
-                    fractions={2}
-                    readonly
-                    initialRating={item.rating}
-                  />
-
-                  <p>
-                    {/* {item.rating} */}
+                  <div className="rating-part">
+                    <Rating 
+                      emptySymbol="far fa-star" 
+                      fullSymbol="fas fa-star" 
+                      fractions={2}
+                      readonly
+                      initialRating={item.rating}
+                    />
                     {item.numOfReviews} Reviews
-                  </p>
+                  </div>
 
                   <p>{item.categories}</p>
-                  <p>{item.price}</p>
+                  <div className="tag">
+                   {item.price} <button>{item.tagzero}</button>
+                  </div>
+                  <p></p>
                   
-                  <p>{item.tagzero}</p>
-                  <p> <span class="tag">HEY</span></p>
+                  
                 </div>
                 
                     
@@ -151,8 +151,8 @@ const Results = () => {
                   <Button variant="warning">SELECT</Button>
                 </Link>
               </Col>
-              <Col className="col-md-5">
-                <div>
+              <Col className="col-md-7">
+                <div className="address-space">
                   <p>{item.location}</p>
                   {item.phone}
                 </div>
