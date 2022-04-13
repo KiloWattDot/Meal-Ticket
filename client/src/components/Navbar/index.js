@@ -26,12 +26,11 @@ function Navbar() {
                 
                     <ul className= 'navList' id={toggle ? 'active' : ''} >
                         
-                        <a href="#"><li>Home</li></a>
-                        <a href="#"><li>Order Now </li></a>
-                        <a href="#"><li>Cart</li></a>
-                        <a href="#"><li>Login</li></a>
+                    <a href="./Home"><li>Home</li></a>
+                        <a href="./ItemSection "><li>Order Now </li></a>
+                        <a href="#Login"><li>Login</li></a>
+                         <a href="./Checkout"><li>Cart</li></a>
                         <input type="text" placeholder="Enter Zipcode"></input>
-                        
                     </ul>
 
                     <div className='menu' onClick={handleToggle} >

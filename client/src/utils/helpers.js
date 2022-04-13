@@ -2,11 +2,11 @@
   
   export function idbPromise(storeName, method, object) {
     return new Promise((resolve, reject) => {
-      const request = window.indexedDB.open('ordering', 1);
+      const request = window.indexedDB.open('ordering', 2);
       let db, tx, store;
       request.onupgradeneeded = function(e) {
         const db = request.result;
-        db.createObjectStore('item', { keyPath: '_id' });
+        db.createObjectStore('items', { keyPath: '_id' });
         db.createObjectStore('cart', { keyPath: '_id' });
       };
   

@@ -9,13 +9,27 @@ import ItemSect from './components/Item-Section/index.js'
 import OrderModal from './components/Order-modal/index.js';
 import MenuPage from './pages/MenuPage/index.js';
 import { MenuProvider } from './utils/MenuContext.js';
-// import Home from './pages/Home/index.js'
+import Home from './pages/Home/index.js'
+// import Login from './pages/Login';
+// import { setContext } from '@apollo/client/link/context';
+
+
 
 
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
 });
+
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem('id_token');
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
 
 function App() {
   return (
@@ -25,11 +39,12 @@ function App() {
       <MenuProvider>
       <Router>
         <div className=" justify-center align-center min-100-vh">
-          <Routes>
-            {/* <Route 
-              path="/home" 
+        <Routes>
+            <Route
+              exact
+              path="/Home"
               element={<Home />}
-            /> */}
+            />
             <Route 
               exact path="/checkout"  element={<Checkout />}
               // element={}
@@ -48,8 +63,7 @@ function App() {
               // element={}
             />
             <Route 
-              path="*"
-              // element={}
+              // exact path="/login" element={<Login />}
             />
           </Routes>
         </div>

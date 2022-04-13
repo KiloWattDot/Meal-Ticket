@@ -10,7 +10,6 @@ const MenuProvider = ({ value = [], ...props}) => {
         items: [],
         cart: [],
         cartOpen: false,
-        
     })
 
 

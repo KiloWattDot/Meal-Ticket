@@ -77,85 +77,84 @@ const Cart = () => {
       }
 
       
-function OffCanvasCart({ name, ...props }) {
-    // const [show, setShow] = useState(false);
-  
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-    // const [order, setOrder] = useState("");
-
-
-
-    return (
-        
-        <Offcanvas onclick={toggleCart} {...props}>
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-                <div>
-                    <h1>American Deli</h1>
-                    <img src={map} className="map"></img>
-                    <p className="loctext-ofc">
+  function OffCanvasCart({ name, ...props }) {
     
-                        <FaMapPin />3695 Cascade Rd. , Suite M, Atlanta, GA 30331
-                    </p>
-                    <hr></hr>
-                
+      const handleClose = () => toggleCart();
+      // const handleOpen = () => true;
+      // const [order, setOrder] = useState("");
 
-                    <div className="cart-box-ofc">
-                    {state.cart.length ? (
-                        <div>
-                            {state.cart.map((item) => (
-                                <CartItem key={item._id} item={item} />
-                            ))}
-                                <Form>
-                                    <Form.Group
-                                    className="mb-3"
-                                    controlId="exampleForm.ControlTextarea1"
-                                    >
-                                    <Form.Label>Notes</Form.Label>
-                                    <Form.Control as="textarea" rows={3} />
-                                    </Form.Group>
-                                </Form>
 
-                                <Form>
-                                    <Button
-                                        type="submit"
-                                        onClick={<Checkout />}
-                                        className="placeOrder-btn-ofc"
-                                        text="Place Order"
-                                    >Place Order</Button>
-                                </Form>
-                                <div className="price-ofc">
-                                    <div className="total-ofc">
-                                    <p>Total</p>
-                                    </div>
-                                    <div className="total-amnt-ofc">
-                                    <p>${calculateTotal()}</p>
-                                </div>
-                                </div>
-                            </div>
-                            
-                        ) : (
-                            <h3>
-                            <span role="img" aria-label="shocked">
-                                😱
-                            </span>
-                            You haven't added anything to your cart yet!
-                            </h3>
-                        )}
 
-                   
+      return (
+          
+          <Offcanvas   show={state.cartOpen} onHide={handleClose} {...props}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+                  <div>
+                      <h1>American Deli</h1>
+                      <img src={map} className="map"></img>
+                      <p className="loctext-ofc">
+      
+                          <FaMapPin />3695 Cascade Rd. , Suite M, Atlanta, GA 30331
+                      </p>
+                      <hr></hr>
+                  
+
+                      <div className="cart-box-ofc">
+                      {state.cart.length ? (
+                          <div>
+                              {state.cart.map((item) => (
+                                  <CartItem key={item._id} item={item} />
+                              ))}
+                                  <Form>
+                                      <Form.Group
+                                      className="mb-3"
+                                      controlId="exampleForm.ControlTextarea1"
+                                      >
+                                      <Form.Label>Notes</Form.Label>
+                                      <Form.Control as="textarea" rows={3} />
+                                      </Form.Group>
+                                  </Form>
+
+                                  <Form>
+                                      <Button
+                                          type="submit"
+                                          onClick={<Checkout />}
+                                          className="placeOrder-btn-ofc"
+                                          text="Place Order"
+                                      >Place Order</Button>
+                                  </Form>
+                                  <div className="price-ofc">
+                                      <div className="total-ofc">
+                                      <p>Total</p>
+                                      </div>
+                                      <div className="total-amnt-ofc">
+                                      <p>${calculateTotal()}</p>
+                                  </div>
+                                  </div>
+                              </div>
+                              
+                          ) : (
+                              <h3>
+                              <span role="img" aria-label="shocked">
+                                  😱
+                              </span>
+                              You haven't added anything to your cart yet!
+                              </h3>
+                          )}
+
                     
-                </div>
-                            </div>
+                      
+                  </div>
+                              </div>
 
-          </Offcanvas.Body>
-        </Offcanvas>
-  
-    );
-}
+            </Offcanvas.Body>
+          </Offcanvas>
+    
+      );
+  }
   
 
 return (

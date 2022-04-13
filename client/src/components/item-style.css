@@ -18,7 +18,7 @@
    
    .item img{
        width: 50%;
-       height: 60%;
+       height: 50%;
        cursor: pointer;
        transition: 0.2 ease;
        margin: 32px 124px;
@@ -68,7 +68,7 @@
    
        @media screen and (max-width: 480px) {
            .item img {
-               height: 50%;
+               height: 45%;
                margin: 32px 96px;
            }
        }

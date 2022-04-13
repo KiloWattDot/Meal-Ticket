@@ -43,7 +43,7 @@ function MenuItem(item) {
 
 
 return (
-    <div class="item">
+    <div className="item">
       <Link to={`/items/${_id}`}>
       <img
           alt={name}
