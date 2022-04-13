@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const GET_ITEM = gql`
+export const GET_ITEMS = gql`
   query getitems($item: ID) {
     items(item: $item) {
       _id
@@ -16,8 +16,10 @@ export const GET_ALL_ITEMS = gql`
   {
     items {
       _id
-      name
+      image
       description
+      name
+      price
     }
   }
 `;

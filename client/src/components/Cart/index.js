@@ -7,12 +7,12 @@ import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 // import Auth from '../../utils/auth'
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import { Offcanvas, Button } from "react-bootstrap";
+import { Offcanvas, Button, Form } from "react-bootstrap";
 import './ordermod-style.css'
 import {FaMapPin} from "react-icons/fa";
 import {FaShoppingCart} from "react-icons/fa"
 import Checkout from '../../pages/Checkout/index.js'
-
+import map from "../../image/themap.PNG";
 
 
 

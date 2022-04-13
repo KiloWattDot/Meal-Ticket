@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useMenuContext } from '../../utils/MenuContext';
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY} from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
+import '../item-style.css'
 
 function MenuItem(item) {
     const [state, dispatch] = useMenuContext();
@@ -12,6 +13,7 @@ function MenuItem(item) {
         name,
         _id,
         price,
+        description,
     } = item;
 
     
@@ -32,27 +34,31 @@ function MenuItem(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 }
+        items: { ...item, purchaseQuantity: 1 }
       });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   }
 
 
+
 return (
-    <div className="card px-1 py-1">
-      <Link to={`/item/${_id}`}>
-        <img
+    <div class="item">
+      <Link to={`/items/${_id}`}>
+      <img
           alt={name}
-          src={`/images/${image}`}
+          src={`/menu-pics/${image}`}
         />
-        <p>{name}</p>
       </Link>
+      <h4 className="item-title">{name}</h4>
       <div>
         <span>${price}</span>
+        <span>description: {description}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button onClick={addToCart} >Order</button>
     </div>
   );
 }
 export default MenuItem;
+
+

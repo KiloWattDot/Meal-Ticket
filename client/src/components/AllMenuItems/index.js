@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_ITEMS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from './spinner.gif'
+import '../item-style.css'
 
 function AllMenuItems() {
     const [state, dispatch] = useMenuContext();
@@ -33,36 +34,42 @@ function AllMenuItems() {
       }, [data, loading, dispatch]);
     
       function filterItems() {
-        return items.filter(
+        if (!currentItem) {
+          return state.items;
+        }
+
+        return state.items.filter(
           (item) => item._id === currentItem
         );
       }
     
 
   return (
-    <div className="my-2">
+
+    <section className= "items">
       <h2>Menu Items:</h2>
       {state.items.length ? (
-        <div className="flex-row">
+        <div class="in-between">
           {filterItems().map((item) => (
             <MenuItem
               key={item._id}
               _id={item._id}
               image={item.image}
-              name={item.name}
+              name={item.name} 
               price={item.price}
-              quantity={item.quantity}
+             
             />
-          ))}
+          ))})
+
         </div>
       ) : (
         <h3>You haven't added any items yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </div>
+    </section>
+    
   );
 }
-
 
 
 export default AllMenuItems;

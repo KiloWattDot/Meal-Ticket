@@ -7,7 +7,9 @@ import Checkout from './pages/Checkout/index.js'
 import ItemSect from './components/Item-Section/index.js'
 // import MenuTest from './pages/MenuTest/index.js'
 import OrderModal from './components/Order-modal/index.js';
-
+import MenuPage from './pages/MenuPage/index.js';
+import { MenuProvider } from './utils/MenuContext.js';
+// import Home from './pages/Home/index.js'
 
 
 const client = new ApolloClient({
@@ -18,25 +20,27 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+     
       <Navbar />
+      <MenuProvider>
       <Router>
         <div className=" justify-center align-center min-100-vh">
           <Routes>
-            <Route 
-              path="/" 
-              // element={<Home />}
-            />
+            {/* <Route 
+              path="/home" 
+              element={<Home />}
+            /> */}
             <Route 
               exact path="/checkout"  element={<Checkout />}
               // element={}
             />
             <Route 
-              exact path="/items" element={<ItemSect />}
+              exact path="/menupage" element={<MenuPage />}
               // element={}
             />
     
             <Route 
-              // exact path="/menutest" element={<MenuTest />}
+              exact path="/items" element={<ItemSect />}
               // element={}
             />
             <Route 
@@ -50,6 +54,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      </MenuProvider>
     </ApolloProvider>
   );
 }
