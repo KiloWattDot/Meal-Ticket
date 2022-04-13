@@ -7,7 +7,7 @@ import Checkout from './pages/Checkout/index.js'
 import ItemSect from './components/Item-Section/index.js'
 // import MenuTest from './pages/MenuTest/index.js'
 import OrderModal from './components/Order-modal/index.js';
-import MockCart from './components/MockCart/index.js'
+
 
 
 const client = new ApolloClient({
@@ -34,10 +34,7 @@ function App() {
               exact path="/items" element={<ItemSect />}
               // element={}
             />
-            <Route 
-              exact path="/mock" element={<MockCart />}
-              // element={}
-            />
+    
             <Route 
               // exact path="/menutest" element={<MenuTest />}
               // element={}

@@ -1,4 +1,21 @@
-// import React  from "react";
+import React  from "react";
+import AllMenuItems from "../../components/AllMenuItems";
+import Cart from "../../components/Cart";
+
+
+
+
+
+const MenuPage = () => {
+    return (
+        <div className="container">
+        <AllMenuItems />
+        <Cart />
+      </div>
+    )
+}
+
+
 // import './menu-style.css'
 // import burger from './image/burger.jpeg'
 // import taco from './image/taco.png'
@@ -35,4 +52,4 @@
 // }
 
 
-// export default MenuTest;
+export default MenuPage;

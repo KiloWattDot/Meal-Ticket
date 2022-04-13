@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import { UPDATE_ITEMS, ADD_TO_CART, ADD_MULTIPLE_TO_CART, REMOVE_FROM_CART, CLEAR_CART, TOGGLE_CART, UPDATE_CART_QUANTITY,} from "./actions";
 
 
-export const redeucer = (state, action ) => {
+export const reducer = (state, action ) => {
     switch (action.type) {
         case UPDATE_ITEMS:
           return {
@@ -34,20 +34,6 @@ export const redeucer = (state, action ) => {
                 cartOpen: newState.length > 0,
                 cart: newState
             };
-      
-    
-        case UPDATE_CART_QUANTITY:
-          return {
-            ...state,
-            cartOpen: true,
-            cart: state.cart.map(item => {
-              if (action._id === item._id) {
-                item.purchaseQuantity = action.purchaseQuantity
-              }
-              return item
-            })
-          };
-    
     
         case CLEAR_CART:
           return {
@@ -62,19 +48,25 @@ export const redeucer = (state, action ) => {
             cartOpen: !state.cartOpen
           };
     
-        case UPDATE_CATEGORIES:
-          return {
+        
+        case UPDATE_CART_QUANTITY:
+            return {
             ...state,
-            categories: [...action.categories],
-          };
-    
-        case UPDATE_CURRENT_CATEGORY:
-          return {
-            ...state,
-            currentCategory: action.currentCategory
-          }
+            cartOpen: true,
+            cart: state.cart.map(item => {
+                if (action._id === item._id) {
+                    item.purchaseQuantity = action.purchaseQuantity
+                }
+                return item
+            })
+        };
+      
     
         default:
           return state;
       }
     };
+
+    export function useItemReducer(initialState) {
+        return useReducer(reducer, initialState)
+      }

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Offcanvas, Button, Container, Form } from "react-bootstrap";
+import { Offcanvas, Button, Form } from "react-bootstrap";
 import map from "../../image/themap.PNG";
 import './ordermod-style.css'
+import {FaMapPin} from "react-icons/fa";
 
 
 
 
-
+function OrderModal() {
+    
 function OffCanvasExample({ name, ...props }) {
     const [show, setShow] = useState(false);
   
@@ -42,50 +44,10 @@ function OffCanvasExample({ name, ...props }) {
                     <img src={map} className="map"></img>
                     <p className="loctext-ofc">
                         {" "}
-                        (icon)3695 Cascade Rd. , Suite M, Atlanta, GA 30331
+                        <FaMapPin />3695 Cascade Rd. , Suite M, Atlanta, GA 30331
                     </p>
                     <hr></hr>
-                    {/* <div className="pickup-ofc">
-                        <div className="pickupText-ofc">
-                        <h3>(icon)Pick Estimate</h3>
-                        </div>
-                        <div className="pickupTime-ofc">
-                        <h3>5-10min</h3>
-                        </div>
-                    </div> */}
-{/* 
-                    <Form>
-                        {["radio"].map((type) => (
-                        <div key={`default-${type}`} className="mb-3">
-                            <Form.Check
-                            active
-                            type={type}
-                            label={`Now`}
-                            id={`Now-${type}`}
-                            />
-                            <Form.Check
-                            active
-                            type={type}
-                            label={`Later`}
-                            id={`Later-${type}`}
-                            />
-                        </div>
-                        ))}
-                    </Form> */}
-                    <hr></hr>
-
-                    {/* <div>
-                        <h3 className="paymentTitle-ofc">Payment</h3>
-                        <div className="addPayment-ofc">
-                        <h4>Add payment method</h4>
-                        <hr></hr>
-                        </div>
-
-                        <div className="addPromo-ofc">
-                        <h4>Add Promo code</h4>
-                        <hr></hr>
-                        </div>
-                    </div> */}
+                
 
                     <div className="cart-box-ofc">
                         <h3>Your items</h3>
@@ -113,23 +75,6 @@ function OffCanvasExample({ name, ...props }) {
                         text="Place Order"
                     >Place Order</Button>
                     </Form>
-{/* 
-                    <div className="price-ofc">
-                        <div className="subtotal-ofc">
-                        <p>Subtotal</p>
-                        </div>
-                        <div className="subtotal-amnt-ofc">
-                        <p>$18.99</p>
-                        </div>
-                    </div>
-                    <div className="price-ofc">
-                        <div className="tax-ofc">
-                        <p>Taxes</p>
-                        </div>
-                        <div className="tax-amnt-ofc">
-                        <p>$2.99</p>
-                        </div>
-                    </div> */}
                     <div className="price-ofc">
                         <div className="total-ofc">
                         <p>Total</p>
@@ -139,15 +84,14 @@ function OffCanvasExample({ name, ...props }) {
                         </div>
                     </div>
                     
-                    </div>
+                </div>
 
           </Offcanvas.Body>
         </Offcanvas>
       </>
     );
-  }
+}
   
-  function OrderModal() {
     return (
       <>
         {['end'].map((placement, idx) => (
