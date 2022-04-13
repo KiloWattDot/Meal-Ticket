@@ -4,59 +4,151 @@ const { User, Item } = require('../models');
 db.once('open', async () => {
 
     await Item.deleteMany();
-    const products = await Product.insertMany([
+    const items = await Item.insertMany([
         {
-            name: 'Tin of Cookies',
+            name: 'Burger Combo',
             description:
-              'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-            image: 'cookie-tin.jpg', 
-            
-            price: 2.99,
-            quantity: 500
+              'American style cheese burger with fries',
+            image: 'burger.jpeg', 
+            price: 10.99,
+        
           },
           {
-            name: 'Canned Coffee',
+            name: 'Crab Boil',
             description:
-              'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-            image: 'canned-coffee.jpg',
-            
-            price: 1.99,
-            quantity: 500
+              'Steamy hot seafood boil mix including crab, shrimp, crawfish, and vegetables',
+            image: 'crab-boil.jpg',
+            price: 21.99,
+     
           },
           {
-            name: 'Toilet Paper',
-           
+            name: 'deepdish-pizza',
             description:
-              'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-            image: 'toilet-paper.jpg',
-            price: 7.99,
-            quantity: 20
+              'Chicago Style Pizza',
+            image: 'deepdish-pizza.jpg',
+            price: 17.99,
+ 
           },
           {
-            name: 'Handmade Soap',
-  
+            name: 'fried Shrimp Combo',
             description:
-              'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-            image: 'soap.jpg',
-            price: 3.99,
-            quantity: 50
+              'Platter of fried shrimp with sides',
+            image: 'fried-shrimp.jpeg',
+            price: 13.99,
+       
+          },
+        {
+            name: 'Hot Dog Combo',
+            description:
+              'American style hot dog with fries and condiments',
+            image: 'hotdog.jpg', 
+            price: 10.99,
+        
+          },
+          {
+            name: 'Korean Noodles',
+            description:
+              'Gochujang miso ramen noodles with choice of protein and vegetables',
+            image: 'korean-noodles.webp',
+            price: 18.99,
+     
+          },
+          {
+            name: 'Lobster',
+            description:
+              'Lobster tails with garlic butter',
+            image: 'lobster.jpg',
+            price: 25.99,
+ 
+          },
+          {
+            name: 'Oysters',
+            description:
+              'Oyster platter with shrimp and dipping sauce',
+            image: 'Oysters.jpg',
+            price: 23.99,
+       
+          },
+        {
+            name: 'Pancakes',
+            description:
+              'FULL STACK of fruit covered pancakes ',
+            image: 'pankcakes.webp', 
+            price: 12.99,
+        
+          },
+          {
+            name: 'Pie ',
+            description:
+              'Whip creamed covered chocolate pie',
+            image: 'pie.webp',
+            price: 8.99,
+     
+          },
+          {
+            name: 'Salad',
+            description:
+              'orange, raisin, and nut covered salad',
+            image: 'Salad.png',
+            price: 10.99,
+ 
+          },
+          {
+            name: 'Seafood Pasta',
+            description:
+              'Alfredo covered pasta with shallots',
+            image: 'seafood-pasta.jpg',
+            price: 13.99,
+       
+          },
+        {
+            name: 'Spaghetti',
+            description:
+              'American style spaghetti drenched in grated parmesian',
+            image: 'spaghetti.jpg', 
+            price: 9.99,
+        
+          },
+          {
+            name: 'Sushi',
+            description:
+              'Califronia roll sushi platter',
+            image: 'sushi.jpeg',
+            price: 15.99,
+     
+          },
+          {
+            name: 'Tacos',
+            description:
+              'Shri tacos',
+            image: 'taco.png',
+            price: 14.99,
+ 
+          },
+          {
+            name: 'Vegan Jambalaya',
+            description:
+              'Vegan take of jambalaya with spicy cajun rice, beans, vegetables, and more',
+            image: 'vegan-jambalaya.jpg',
+            price: 23.99,
+       
           }
 
     ]);
 
 
-    console.log('-------------------products seeded--------------------------------------------------------');
+    console.log('-------------------Item seeded--------------------------------------------------------');
 
     await User.deleteMany();
 
     await User.create({
-      firstName: 'Pauka',
+      firstName: 'Paula',
       lastName: 'Leverret',
       email: 'paulaLev@testmail.com',
       password: 'password12345',
       orders: [
         {
-          products: [items[0]._id, items[0]._id, items[1]._id]
+          itemss: [items[0]._id, items[0]._id, items[1]._id]
         }
       ]
     });
