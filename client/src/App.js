@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/index.js";
 import ItemSection from "./components/Item-Section/index.js";
 import OrderModal from "./components/Order-modal/index.js";
 import Checkout from "./pages/Checkout/index.js";
+import Home from "./pages/Home/Home.js";
+
 // import CartModal from './pages/CartModal/index.js'
 
 const client = new ApolloClient({
@@ -20,8 +22,9 @@ function App() {
         <div className=" justify-center align-center min-100-vh">
           <Routes>
             <Route
-              path="/"
-              // element={<Home />}
+              exact
+              path="/Home"
+              element={<Home />}
             />
             <Route
               exact

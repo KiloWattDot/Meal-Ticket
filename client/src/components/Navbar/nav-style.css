@@ -1,26 +1,25 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
-
 }
 body {
   background: linear-gradient(black, white);
 }
 
-.item-title{
+.item-title {
   text-align: center;
   color: black;
   padding: 20px;
 }
-nav{
-  background-color:goldenrod;
+nav {
+  background-color: goldenrod;
   display: grid;
-  place-items: center;
-
+  /* place-items: center; */
+  text-align: center;
 }
-nav ul{
+nav ul {
   list-style-type: none;
   margin-top: 11px !important;
 }
@@ -31,41 +30,26 @@ nav ul a {
   color: white;
   transition: 0.2s ease-in;
 }
-nav ul a:hover{
-  background-color:black;
+nav ul a:hover {
+  background-color: black;
   color: white;
 }
-.logo{
+/* logo */
+.logo {
   width: 15%;
   height: 20%;
-  align-items: center;
-  padding: 20px;
-  
- 
+ margin: auto;
+ display: block;
 }
 
 @media all and (max-width: 1024px) {
-  
-
 }
 
-
-
-
 @media all and (max-width: 980px) {
-  
-
 }
 
 @media all and (max-width: 720px) {
-  
-
-
 }
 
 @media all and (max-width: 480px) {
- 
-
-
 }
-

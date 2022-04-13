@@ -1,0 +1,13 @@
+.home__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home__app_logo{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7em;
+}
