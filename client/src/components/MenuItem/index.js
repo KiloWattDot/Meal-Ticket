@@ -51,9 +51,9 @@ return (
         />
       </Link>
       <h4 className="item-title">{name}</h4>
-      <div>
-        <span>${price}</span>
-        <span>description: {description}</span>
+      <div className="item-info">
+        <span>$ {price}</span>
+        <p>{description}</p>
       </div>
       <button onClick={addToCart} >Order</button>
     </div>

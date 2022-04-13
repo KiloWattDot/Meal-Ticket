@@ -47,9 +47,10 @@ function AllMenuItems() {
   return (
 
     <section className= "items">
-      <h2>Menu Items:</h2>
+     <h2>Menu Items:</h2>
       {state.items.length ? (
         <div class="in-between">
+           
           {filterItems().map((item) => (
             <MenuItem
               key={item._id}
@@ -57,6 +58,7 @@ function AllMenuItems() {
               image={item.image}
               name={item.name} 
               price={item.price}
+              description={item.description}
              
             />
           ))})

@@ -22,7 +22,7 @@ db.once('open', async () => {
      
           },
           {
-            name: 'deepdish-pizza',
+            name: 'Deep Dish Pizza',
             description:
               'Chicago Style Pizza',
             image: 'deepdish-pizza.jpg',
@@ -120,19 +120,11 @@ db.once('open', async () => {
           {
             name: 'Tacos',
             description:
-              'Shri tacos',
+              'Fresh Shrimp seasoned with Latin Spices, topped with mango slaw. tacos',
             image: 'taco.png',
             price: 14.99,
  
           },
-          {
-            name: 'Vegan Jambalaya',
-            description:
-              'Vegan take of jambalaya with spicy cajun rice, beans, vegetables, and more',
-            image: 'vegan-jambalaya.jpg',
-            price: 23.99,
-       
-          }
 
     ]);
 
