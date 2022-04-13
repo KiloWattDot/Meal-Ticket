@@ -67,8 +67,12 @@ const Results = () => {
       .then((data) => {
         //  console.log(data)
         //  console.log(data.data)
-        console.log(data.data.businesses);
-        //  console.log(data.data.businesses[0].name)
+        // console.log(data.data.businesses.name[0]);
+         console.log(data.data.businesses[0].categories)
+
+        // const tags = data.data.bussinesses.map((category) => (
+        // <div className="tag"><button>{category.categories.title}</button></div>
+        // ))
 
         const foodData = data.data.businesses.map((food) => ({
           id: food.id,
@@ -78,7 +82,7 @@ const Results = () => {
           rating: food.rating,
           numOfReviews: food.review_count,
           price: food.price,
-          tagzero: food.categories[0].title,
+          tag: food.categories[0].title,
 
           location: food.location.display_address,
           phone: food.display_phone,
@@ -131,7 +135,7 @@ const Results = () => {
 
                   <p>{item.categories}</p>
                   <div className="tag">
-                   {item.price} <button>{item.tagzero}</button>
+                   {item.price} <button>{item.tag}</button>
                   </div>
                   <p></p>
                   
