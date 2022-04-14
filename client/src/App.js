@@ -10,6 +10,8 @@ import OrderModal from './components/Order-modal/index.js';
 import MenuPage from './pages/MenuPage/index.js';
 import { MenuProvider } from './utils/MenuContext.js';
 import Home from './pages/Home/index.js'
+import Map from './components/Map/index.js';
+
 // import Login from './pages/Login';
 // import { setContext } from '@apollo/client/link/context';
 
@@ -32,6 +34,9 @@ const client = new ApolloClient({
 // });
 
 function App() {
+
+
+
   return (
     <ApolloProvider client={client}>
      
@@ -63,7 +68,7 @@ function App() {
               // element={}
             />
             <Route 
-              // exact path="/login" element={<Login />}
+              exact path="/Map" element={<Map />}
             />
           </Routes>
         </div>
