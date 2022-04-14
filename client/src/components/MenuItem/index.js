@@ -54,7 +54,7 @@ return (
       <div className="item-info">
         <span>$ {price}</span>
         <p>{description}</p>
-      </div>
+      </div>      
       <button onClick={addToCart} >Order</button>
     </div>
   );

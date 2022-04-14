@@ -49,7 +49,7 @@ function AllMenuItems() {
     <section className= "items">
      <h2>Menu Items:</h2>
       {state.items.length ? (
-        <div class="in-between">
+        <div className="in-between">
            
           {filterItems().map((item) => (
             <MenuItem

@@ -11,6 +11,8 @@ import MenuPage from './pages/MenuPage/index.js';
 import { MenuProvider } from './utils/MenuContext.js';
 import Home from './pages/Home/index.js'
 import Map from './components/Map/index.js';
+import ItemDetails from './pages/ItemDetails/index.js';
+import NoMatch from './pages/NoMatch.js';
 
 // import Login from './pages/Login';
 // import { setContext } from '@apollo/client/link/context';
@@ -64,11 +66,18 @@ function App() {
               // element={}
             />
             <Route 
+              exact path="/items/:id" element={<ItemDetails />}
+              // element={}
+            />
+            <Route 
               exact path="/ordermodal" element={<OrderModal />}
               // element={}
             />
             <Route 
               exact path="/Map" element={<Map />}
+            />
+            <Route 
+              component={NoMatch}
             />
           </Routes>
         </div>

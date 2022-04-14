@@ -16,7 +16,6 @@ import map from "../../image/themap.PNG";
 
 
 
-
 const Cart = () => {
     const [state, dispatch] = useMenuContext();
     const [getCheckout, { data }] = useLazyQuery(GET_CHECKOUT);
@@ -89,7 +88,7 @@ const Cart = () => {
           
           <Offcanvas   show={state.cartOpen} onHide={handleClose} {...props}>
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+              <Offcanvas.Title>Cart</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                   <div>
@@ -124,7 +123,7 @@ const Cart = () => {
                                           onClick={<Checkout />}
                                           className="placeOrder-btn-ofc"
                                           text="Place Order"
-                                      >Place Order</Button>
+                                      >Go to checkout</Button>
                                   </Form>
                                   <div className="price-ofc">
                                       <div className="total-ofc">
