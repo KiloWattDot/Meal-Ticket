@@ -59,7 +59,7 @@ type Mutation {
   addOrder(items: [ID]!): Order
   updateUser(firstName: String, lastName: String, email: String, password: String): User
   login(email: String!, password: String!): Auth
-  savedRest(resid: String!, image_url: String, foodname: String, rating: Int, numOfReviews: Int, price: String, tag: String, location: String, phone: String): Tech
+  savedRest(resid: String!, image_url: String, foodname: String, rating: Int, numOfReviews: Int, tag: String, location: String, phone: String): Tech
   removeRest(did: String!): Tech
 }
 

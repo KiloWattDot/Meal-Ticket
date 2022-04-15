@@ -4,9 +4,6 @@ import {
 	Row,
 	Col,
 	Container,
-	NavDropdown,
-	Form,
-	FormControl,
 	Button,
 } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
@@ -96,7 +93,7 @@ const Results = ({ setHolder }) => {
 					operation: food.is_closed,
 					rating: food.rating,
 					numOfReviews: food.review_count,
-					price: food.price,
+					// price: food.price,
 					tag: food.categories[0].title,
 
 					location: food.location.display_address,
@@ -161,7 +158,7 @@ const Results = ({ setHolder }) => {
 									className="star-five"
 								>
 									Fav
-									<img src={filled ? filledStar : unfilled} className="filled" />
+									{/* <img src={filled ? filledStar : unfilled} className="filled" /> */}
 								</Button>
 								<Link to={'/choice/' + item.id}>
 									<Button onClick={() => handleSelect(item.id)} variant="warning">SELECT</Button>
