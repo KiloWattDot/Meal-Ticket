@@ -22,7 +22,7 @@ function Pages() {
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<Signup />} />
        <Route path="/choice/:id" element={<Choice holder={holder} />} />
-       <Route path="/fav" element={<Fav />} />
+       <Route path="/fav" element={<Fav setHolder={setHolder}/>} />
         
     </Routes>
     </Router>

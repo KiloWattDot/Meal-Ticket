@@ -12,14 +12,25 @@ import { QUERY_FAV } from '../utils/queries';
 import { REMOVE_FAV } from '../utils/mutations';
 
 
-function Fav() {
+const Fav = ({setHolder}) => {
 
-  // const [favs, setFavs] = useState()
+  const [favs, setFavs] = useState()
   // const navigate = useNavigate();
+
+  const navigate = useNavigate();
 
   const { loading, data } = useQuery(QUERY_FAV);
   const [removeFav, { error }] = useMutation(REMOVE_FAV);
 
+  let test = []
+  // const test = data.savedRest
+
+  // const test = data.savedRest.map((food) => ({
+  //   id: food.resid,
+  //   image_url: food.imageurl,
+  //   foodname: food.name,
+  
+  // }));
 
   const handleDeleteFav = async (id) => {
    
@@ -45,14 +56,34 @@ function Fav() {
     // window.location.reload()
   //  }, [favs]);
 
+
+  const handleSelect = (id) =>{ 
+
+    
+    let foodSelected = test.find((food) => food.id === id);
+
+    setHolder(foodSelected)
+    navigate (`/choice/`+id)
+  };
+
   
 if (loading) {return ( <h1>LOADING</h1>)}
 
 else {
 
-  // console.log (data.savedRest)
-  const test = data.savedRest
+  console.log (data.savedRest)
   
+    // const test = data.savedRest
+
+  test = data.savedRest.map((food) => ({
+    id: food.resid,
+    image_url: food.imageurl,
+    foodname: food.name,
+  
+  }));
+  
+
+
   return (
     <Container fluid className='px-5'>
 
@@ -67,17 +98,17 @@ else {
         <Col className="col-md-2">
         <img width="200" height="200"
         className=" float-end border border-5 border-dark "
-        src= {item.imageurl}
+        src= {item.image_url}
         alt="First slide"
       />
         </Col>
         <Col className='pt-5'>
-          <h1>{item.name}</h1>
+          <h1>{item.foodname}</h1>
           {/* <p>{item.location.address1}</p> */}
-          <Button onClick={() => handleDeleteFav(item.resid)} variant="warning" >REMOVE</Button>
-          <Link to= {"/choice/"+item.resid}>
-          <Button  variant="warning" >SELECT</Button>
-          </Link>
+          <Button onClick={() => handleDeleteFav(item.id)} variant="warning" >REMOVE</Button>
+          {/* <Link to= {"/choice/"+item.resid}> */}
+          <Button onClick={() => handleSelect(item.id)}  variant="warning" >SELECT</Button>
+          {/* </Link> */}
         </Col>
       </Row>
       </div>
