@@ -158,7 +158,7 @@ const Results = ({ setHolder }) => {
 									className="star-five"
 								>
 									Fav
-									{/* <img src={filled ? filledStar : unfilled} className="filled" /> */}
+									<img src={filled ? filledStar : unfilled} className="filled" />
 								</Button>
 								<Link to={'/choice/' + item.id}>
 									<Button onClick={() => handleSelect(item.id)} variant="warning">SELECT</Button>
