@@ -110,7 +110,7 @@ const Results = ({ setHolder }) => {
 
 	useEffect(() => {
 		getResults(params.id);
-	}, [params.id]);
+	}, []);
 
 	return (
 		<Container fluid className="px-5">
