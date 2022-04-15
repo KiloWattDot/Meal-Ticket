@@ -61,7 +61,7 @@ function Fav({setHolder}) {
     foodname: food.foodname,
 	rating: food.rating,
 	numOfReviews: food.numOfReviews,
-	price: food.price,
+	// price: food.price,
 	tag: food.tag,
 	location: food.location,
 	phone: food.phone
@@ -101,7 +101,8 @@ function Fav({setHolder}) {
 
 									<p>{item.categories}</p>
 									<div className="tag">
-										{item.price} <button>{item.tag}</button>
+										{/* {item.price} */}
+										 <button>{item.tag}</button>
 									</div>
 									<p></p>
 								</div>

@@ -9,7 +9,6 @@ export const QUERY_FAV = gql`
     foodname
     rating
     numOfReviews
-    price
     tag
     location
     phone

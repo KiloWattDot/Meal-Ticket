@@ -51,7 +51,7 @@ const Results = ({ setHolder }) => {
 					foodname: foodToSave.foodname,
 					rating: foodToSave.rating,
 					numOfReviews: foodToSave.numOfReviews,
-					price: foodToSave.price,
+					// price: foodToSave.price,
 					tag: foodToSave.tag,
 					// location: "location",
 					location: foodToSave.location[0],
@@ -93,7 +93,7 @@ const Results = ({ setHolder }) => {
 					operation: food.is_closed,
 					rating: food.rating,
 					numOfReviews: food.review_count,
-					// price: food.price,
+					price: food.price,
 					tag: food.categories[0].title,
 
 					location: food.location.display_address,
@@ -101,7 +101,7 @@ const Results = ({ setHolder }) => {
 				}));
 
 				setResults(foodData);
-				console.log(results);
+				// console.log(results);
 			})
 			.catch((err) => {
 				console.log(err);
