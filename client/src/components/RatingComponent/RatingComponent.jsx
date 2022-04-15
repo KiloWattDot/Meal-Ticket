@@ -1,7 +1,11 @@
-import React from 'react';
-
-import './rating.css';
+import React from "react";
+import Rating from "react-rating";
+// import "./rating.css";
 
 export function RatingComponent() {
-	return <div></div>;
+  return (
+    <div>
+      
+    </div>
+  );
 }

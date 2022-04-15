@@ -9,7 +9,6 @@ import {
 	FormControl,
 	Button,
 } from 'react-bootstrap';
-import { FaStar } from 'react-icons/fa';
 import unfilled from '../image/empty-star.jpg';
 import filledStar from '../image/filled-star.png';
 import { Link, useParams, useNavigate } from 'react-router-dom';
@@ -18,7 +17,6 @@ import axios from 'axios';
 
 import { useMutation } from '@apollo/client';
 import { CREATE_Rest } from '../utils/mutations';
-import { RatingComponent } from './RatingComponent/RatingComponent';
 
 const Results = ({setHolder}) => {
 
