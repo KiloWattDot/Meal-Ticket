@@ -6,10 +6,28 @@ const techSchema = new Schema({
     required: true,
     // unique: true,
   },
-  imageurl: {
+  image_url: {
     type: String,
   },
-  name: {
+  foodname: {
+    type: String,
+  },
+  rating: {
+    type: Number,
+  },
+  numOfReviews: {
+    type: Number,
+  },
+  price: {
+    type: String,
+  },
+  tag: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  phone: {
     type: String,
   },
 });

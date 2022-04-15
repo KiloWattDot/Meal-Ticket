@@ -32,12 +32,26 @@ type Auth {
   user: User
 }
 
+type Tech {
+  _id: ID!
+  resid: String
+  image_url: String
+  foodname: String
+  rating: Int
+  numOfReviews: Int
+  price: String
+  tag: String
+  location: String
+  phone: String
+}
+
 type Query {
   items(name: String): [Item]
   item(itemId: ID!): Item
   user: User
   order(_id: ID!): Order
   checkout(items: [ID]!): Checkout
+  savedRest: [Tech]
 }
 
 type Mutation {
@@ -45,6 +59,8 @@ type Mutation {
   addOrder(items: [ID]!): Order
   updateUser(firstName: String, lastName: String, email: String, password: String): User
   login(email: String!, password: String!): Auth
+  savedRest(resid: String!, image_url: String, foodname: String, rating: Int, numOfReviews: Int, price: String, tag: String, location: String, phone: String): Tech
+  removeRest(did: String!): Tech
 }
 
 

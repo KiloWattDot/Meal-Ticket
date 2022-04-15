@@ -1,13 +1,12 @@
 import { gql } from '@apollo/client';
 
 export const CREATE_Rest = gql`
-	mutation SaveBook($resid: String!, $imageurl: String, $name: String) {
-		saveBook(resid: $resid, imageurl: $imageurl, name: $name) {
-			_id
-			resid
-			imageurl
-		}
+mutation SavedRest($resid: String!, $image_url: String, $foodname: String, $rating: Int, $numOfReviews: Int, $price: String, $tag: String, $location: String, $phone: String) {
+	savedRest(resid: $resid, image_url: $image_url, foodname: $foodname, rating: $rating, numOfReviews: $numOfReviews, price: $price, tag: $tag, location: $location, phone: $phone) {
+	  resid
+	  image_url
 	}
+  }
 `;
 
 export const REMOVE_FAV = gql`
@@ -15,8 +14,7 @@ export const REMOVE_FAV = gql`
 		removeRest(did: $did) {
 			_id
 			resid
-			imageurl
-			name
+			
 		}
 	}
 `;

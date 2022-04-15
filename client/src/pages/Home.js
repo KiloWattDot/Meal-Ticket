@@ -5,12 +5,8 @@ import Tacos from '../components/NavBar/img/tacoPic.png'
 import {
   Container,
   Col,
-  Row,
-  Navbar,
-  Form,
-  Button,
-  Card,
-  CardColumns
+  Row
+  
 
 } from "react-bootstrap";
 // I like what you did there...

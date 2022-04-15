@@ -1,10 +1,15 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Item, Order } = require('../models');
+const { User, Item, Order, Tech } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
 const resolvers = {
   Query: { 
+
+    savedRest: async () => {
+      return Tech.find({});
+    },
+
   items: async () => {
     return await Item.find();
   },
@@ -78,6 +83,16 @@ const resolvers = {
 
 
   Mutation: {
+
+    savedRest: async (parent,  args ) => {
+      const rest = await Tech.create(args);
+      return rest;
+    },
+
+    removeRest: async (parent, { did }) => {
+      return Tech.findOneAndDelete({ resid: did });
+    },
+
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);

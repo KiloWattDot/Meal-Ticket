@@ -27,7 +27,7 @@ function Pages() {
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<Signup />} />
        <Route path="/choice/:id" element={<Choice holder={holder}  />} />
-       <Route path="/favorites" element={<Fav />} />
+       <Route path="/favorites" element={<Fav setHolder={setHolder}/>} />
        <Route path="/pay" element={<StripeContainer />} />
        <Route path="/checkout" element={<Checkout />} />
        <Route path="/items/:id" element={<ItemDetails />} />

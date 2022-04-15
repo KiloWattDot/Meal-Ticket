@@ -5,8 +5,14 @@ export const QUERY_FAV = gql`
   savedRest {
     _id
     resid
-    imageurl
-    name
+    image_url
+    foodname
+    rating
+    numOfReviews
+    price
+    tag
+    location
+    phone
   }
 }
 `;
@@ -64,3 +70,4 @@ export const GET_USER = gql`
     }
   }
 `;
+
