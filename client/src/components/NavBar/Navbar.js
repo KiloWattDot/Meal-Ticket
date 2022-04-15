@@ -17,7 +17,7 @@ const handleClick = () => navigate (`/results/`+searchInput);
     <Navbar bg="dark" expand="lg">
   
   <Container fluid>
-      <Navbar.Brand as={NavLink} to="/" className='display-1 text-warning'>MEAL TICKET</Navbar.Brand>
+      <Navbar.Brand as={NavLink} to="/favorites" className='display-1 text-warning'>MEAL TICKET</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
