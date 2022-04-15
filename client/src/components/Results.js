@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Rating from 'react-rating';
+// import Rating from 'react-rating';
 import {
 	Row,
 	Col,
@@ -10,12 +10,12 @@ import { FaStar } from 'react-icons/fa';
 import unfilled from '../image/empty-star.jpg';
 import filledStar from '../image/filled-star.png';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import '../components/RatingComponent/rating.css';
+// import '../components/RatingComponent/rating.css';
 import axios from 'axios';
 
 import { useMutation } from '@apollo/client';
 import { CREATE_Rest } from '../utils/mutations';
-import { RatingComponent } from './RatingComponent/RatingComponent';
+// import { RatingComponent } from './RatingComponent/RatingComponent';
 
 const Results = ({ setHolder }) => {
 
@@ -134,7 +134,7 @@ const Results = ({ setHolder }) => {
 								<h1>{item.foodname}</h1>
 								<div>
 									<p>{item.operation}</p>
-									<div className="rating-part">
+									{/* <div className="rating-part">
 										<Rating
 											emptySymbol="far fa-star"
 											fullSymbol="fas fa-star"
@@ -143,7 +143,7 @@ const Results = ({ setHolder }) => {
 											initialRating={item.rating}
 										/>
 										{item.numOfReviews} Reviews
-									</div>
+									</div> */}
 
 									<p>{item.categories}</p>
 									<div className="tag">
@@ -158,7 +158,7 @@ const Results = ({ setHolder }) => {
 									className="star-five"
 								>
 									Fav
-									<img src={filled ? filledStar : unfilled} className="filled" />
+									{/* <img src={filled ? filledStar : unfilled} className="filled" /> */}
 								</Button>
 								<Link to={'/choice/' + item.id}>
 									<Button onClick={() => handleSelect(item.id)} variant="warning">SELECT</Button>
