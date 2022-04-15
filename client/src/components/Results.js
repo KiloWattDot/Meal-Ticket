@@ -107,16 +107,16 @@ const Results = ({ setHolder }) => {
 			});
 	};
 
-	// useEffect(() => {
-	// 	getResults(params.id);
-	// }, []);
+	useEffect(() => {
+		getResults(params.id);
+	}, []);
 
 	return (
 		<Container fluid className="px-5">
 			<h1>{params.id}</h1>
 
 			
-			{/* {results.map((item, index) => {
+			{results.map((item, index) => {
 				return (
 					<div key={index}>
 						<Row className=" my-5 shadow-lg p-4 bg-white border border-5 border-dark">
@@ -172,7 +172,7 @@ const Results = ({ setHolder }) => {
 						</Row>
 					</div>
 				);
-			})} */}
+			})}
 		</Container>
 	);
 };
