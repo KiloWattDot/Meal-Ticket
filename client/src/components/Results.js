@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import Rating from 'react-rating';
+import Rating from 'react-rating';
 import {
 	Row,
 	Col,
@@ -10,12 +10,12 @@ import { FaStar } from 'react-icons/fa';
 import unfilled from '../image/empty-star.jpg';
 import filledStar from '../image/filled-star.png';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-// import '../components/RatingComponent/rating.css';
+import '../components/RatingComponent/rating.css';
 import axios from 'axios';
 
 import { useMutation } from '@apollo/client';
 import { CREATE_Rest } from '../utils/mutations';
-// import { RatingComponent } from './RatingComponent/RatingComponent';
+import { RatingComponent } from './RatingComponent/RatingComponent';
 
 const Results = ({ setHolder }) => {
 
@@ -81,10 +81,9 @@ const Results = ({ setHolder }) => {
 			)
 
 			.then((data) => {
-				//  console.log(data)
-				//  console.log(data.data)
+				
 				console.log(data.data.businesses);
-				//  console.log(data.data.businesses[0].name)
+				
 
 				const foodData = data.data.businesses.map((food) => ({
 					id: food.id,
@@ -101,7 +100,7 @@ const Results = ({ setHolder }) => {
 				}));
 
 				setResults(foodData);
-				// console.log(results);
+				
 			})
 			.catch((err) => {
 				console.log(err);
@@ -116,8 +115,8 @@ const Results = ({ setHolder }) => {
 		<Container fluid className="px-5">
 			<h1>{params.id}</h1>
 
-			{/* map fuction to display the results */}
-			{results.map((item, index) => {
+			
+			{/* {results.map((item, index) => {
 				return (
 					<div key={index}>
 						<Row className=" my-5 shadow-lg p-4 bg-white border border-5 border-dark">
@@ -134,7 +133,7 @@ const Results = ({ setHolder }) => {
 								<h1>{item.foodname}</h1>
 								<div>
 									<p>{item.operation}</p>
-									{/* <div className="rating-part">
+									<div className="rating-part">
 										<Rating
 											emptySymbol="far fa-star"
 											fullSymbol="fas fa-star"
@@ -143,7 +142,7 @@ const Results = ({ setHolder }) => {
 											initialRating={item.rating}
 										/>
 										{item.numOfReviews} Reviews
-									</div> */}
+									</div>
 
 									<p>{item.categories}</p>
 									<div className="tag">
@@ -151,14 +150,14 @@ const Results = ({ setHolder }) => {
 									</div>
 									<p></p>
 								</div>
-								{/* <p>{item.location.address1}</p> */}
+								
 								<Button
 									onClick={() => handleSaveFood(item.id)}
 									variant="warning"
 									className="star-five"
 								>
 									Fav
-									{/* <img src={filled ? filledStar : unfilled} className="filled" /> */}
+									<img src={filled ? filledStar : unfilled} className="filled" />
 								</Button>
 								<Link to={'/choice/' + item.id}>
 									<Button onClick={() => handleSelect(item.id)} variant="warning">SELECT</Button>
@@ -173,7 +172,7 @@ const Results = ({ setHolder }) => {
 						</Row>
 					</div>
 				);
-			})}
+			})} */}
 		</Container>
 	);
 };
