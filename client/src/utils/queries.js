@@ -7,11 +7,6 @@ export const QUERY_FAV = gql`
     resid
     image_url
     foodname
-    rating
-    numOfReviews
-    tag
-    location
-    phone
   }
 }
 `;
@@ -53,8 +48,8 @@ export const GET_CHECKOUT = gql`
 export const GET_USER = gql`
   {
     user {
-      firstName
-      lastName
+      firstname
+      lastname
       orders {
         _id
         purchaseDate

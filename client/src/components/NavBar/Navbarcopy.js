@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import {
-	Nav,
-	Container,
-	NavDropdown,
+	
 	Form,
 	FormControl,
 	Button,
 } from 'react-bootstrap';
+
 import logo from './img/MealTicket-Logo(nobg).png';
 import './navbar.css';
 
+import { useQuery } from '@apollo/client';
+import { GET_USER } from '../../utils/queries';
+
 function Navbar1() {
+
+	// const { loading, data } = useQuery(GET_USER);
+// console.log (data)
+// const username = data
 	const [searchInput, setSearchInput] = useState('');
 
 	const navigate = useNavigate();
@@ -51,6 +57,7 @@ function Navbar1() {
 					<a href="/signup">
 						<li>Join</li>
 					</a>
+					{/* <h2>{}</h2> */}
 					<Form className="d-flex">
 						<FormControl
 							name="searchInput"

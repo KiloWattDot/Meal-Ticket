@@ -31,7 +31,7 @@ return(
     <h1 className="display-1 text-center pt-5">Come Get Your Meal Ticket!</h1>
     </Col>
   </Row>
-</Container>)
+</Container>
 
 
 

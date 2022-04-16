@@ -23,7 +23,7 @@ function Pages() {
           <MenuProvider >
       <Routes>
        <Route path="/" element={<Home/>} />
-       <Route path="/results/:id*" element={<Results setHolder={setHolder} />} />
+       <Route path="/results/:id" element={<Results setHolder={setHolder}/>} />
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<Signup />} />
        <Route path="/choice/:id" element={<Choice holder={holder}  />} />

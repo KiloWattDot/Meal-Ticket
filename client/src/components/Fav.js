@@ -60,12 +60,12 @@ function Fav({setHolder}) {
     id: food.resid,
     image_url: food.image_url,
     foodname: food.foodname,
-	rating: food.rating,
-	numOfReviews: food.numOfReviews,
-	// price: food.price,
-	tag: food.tag,
-	location: food.location,
-	phone: food.phone
+	// rating: food.rating,
+	// numOfReviews: food.numOfReviews,
+	// // price: food.price,
+	// tag: food.tag,
+	// location: food.location,
+	// phone: food.phone
   
   }));
   
@@ -89,7 +89,7 @@ function Fav({setHolder}) {
 								<h1>{item.foodname}</h1>
 								<div>
 									{/* <p>{item.operation}</p> */}
-									<div className="rating-part">
+									{/* <div className="rating-part">
 										<Rating
 											emptySymbol="far fa-star"
 											fullSymbol="fas fa-star"
@@ -98,13 +98,13 @@ function Fav({setHolder}) {
 											initialRating={item.rating}
 										/>
 										{item.numOfReviews} Reviews
-									</div>
+									</div> */}
 
-									<p>{item.categories}</p>
-									<div className="tag">
+									{/* <p>{item.categories}</p> */}
+									{/* <div className="tag"> */}
 										{/* {item.price} */}
-										 <button>{item.tag}</button>
-									</div>
+										 {/* <button>{item.tag}</button> */}
+									{/* </div> */}
 									<p></p>
 								</div>
 								{/* <p>{item.location.address1}</p> */}
@@ -114,10 +114,10 @@ function Fav({setHolder}) {
 								</Link>
 							</Col>
 							<Col className="col-md-7">
-								<div className="address-space">
-									<p>{item.location}</p>
-									{item.phone}
-								</div>
+								{/* <div className="address-space"> */}
+									{/* <p>{item.location}</p> */}
+									{/* {item.phone} */}
+								{/* </div> */}
 							</Col>
 						</Row>
 					</div>

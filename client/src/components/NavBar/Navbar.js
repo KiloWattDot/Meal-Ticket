@@ -10,7 +10,7 @@ const [searchInput, setSearchInput] = useState('');
 const navigate = useNavigate();
 
   
-const handleClick = () => {navigate (`/results/`+searchInput)};
+const handleClick = () => navigate (`/results/`+searchInput);
   
 
   return (
@@ -26,7 +26,7 @@ const handleClick = () => {navigate (`/results/`+searchInput)};
           navbarScroll
         >
           <Nav.Link as={NavLink} to="/favorites" className='text-light'>Favs</Nav.Link>
-          <Nav.Link as={NavLink} to="/cart/:id" className='text-light'>Cart</Nav.Link>
+          <Nav.Link as={NavLink} to="/fav" className='text-light'>Cart</Nav.Link>
           <Nav.Link as={NavLink} to="/fav" className='text-light'>Order Now</Nav.Link>
 
           <NavDropdown title={<span className='text-light'>Enter</span>} id="navbarScrollingDropdown">

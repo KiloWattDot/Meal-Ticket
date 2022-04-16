@@ -17,8 +17,8 @@ type Order {
 
 type User {
   _id: ID
-  firstName: String
-  lastName: String
+  firstname: String
+  lastname: String
   email: String
   orders: [Order]
 }
@@ -37,12 +37,6 @@ type Tech {
   resid: String
   image_url: String
   foodname: String
-  rating: Int
-  numOfReviews: Int
-  price: String
-  tag: String
-  location: String
-  phone: String
 }
 
 type Query {
@@ -55,11 +49,11 @@ type Query {
 }
 
 type Mutation {
-  addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+  addUser(firstname: String!, lastname: String!, email: String!, password: String!): Auth
   addOrder(items: [ID]!): Order
-  updateUser(firstName: String, lastName: String, email: String, password: String): User
+  updateUser(firstname: String, lastname: String, email: String, password: String): User
   login(email: String!, password: String!): Auth
-  savedRest(resid: String!, image_url: String, foodname: String, rating: Int, numOfReviews: Int, tag: String, location: String, phone: String): Tech
+  savedRest(resid: String!, image_url: String, foodname: String): Tech
   removeRest(did: String!): Tech
 }
 
