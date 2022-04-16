@@ -5,7 +5,7 @@ import Results from "../components/Results"
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import Choice from '../components/Choice';
-import Navbar from '../components/NavBar/Navbar';
+import Navbar from '../components/NavBar/Navbarcopy';
 import Fav from '../components/Fav';
 import StripeContainer from '../components/StripeContainer';
 import Cart from '../components/Cart';
@@ -16,24 +16,22 @@ import ItemDetails from './ItemDetails/index.js'
 function Pages() {
   
   const [holder, setHolder] = useState([])
-  const [test, setTest] = useState('Test')
-  const [search, setSearch] = useState()
 
   return (
       <Router>
-          <Navbar setSearch={setSearch}  />
+          <Navbar />
           <MenuProvider >
       <Routes>
        <Route path="/" element={<Home/>} />
-       <Route path="/results/:id" element={<Results setHolder={setHolder} search={search} />} />
+       <Route path="/results/:id" element={<Results setHolder={setHolder}/>} />
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<Signup />} />
        <Route path="/choice/:id" element={<Choice holder={holder}  />} />
        <Route path="/favorites" element={<Fav setHolder={setHolder}/>} />
        <Route path="/pay" element={<StripeContainer />} />
-       <Route path="/checkout" element={<Checkout />} />
+       <Route path="/checkout" element={<Checkout holder={holder} />} />
        <Route path="/items/:id" element={<ItemDetails />} />
-       <Route path="/cart/:id" element={<Cart test={test} />}  />
+       <Route path="/cart/" element={<Cart holder={holder} />}  />
         
     </Routes>
     </MenuProvider>

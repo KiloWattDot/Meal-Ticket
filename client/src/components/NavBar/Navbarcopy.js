@@ -42,7 +42,7 @@ function Navbar1() {
 					<a href="/favorites">
 						<li>Favorites</li>
 					</a>
-					<a href="/cart">
+					<a href="/checkout">
 						<li>Cart</li>
 					</a>
 					<a href="/login">
@@ -57,7 +57,7 @@ function Navbar1() {
 							value={searchInput}
 							onChange={(e) => setSearchInput(e.target.value)}
 							type="search"
-							placeholder="Enter zip code"
+							placeholder="Enter zip code or city"
 							className="me-2"
 							aria-label="Search"
 						/>

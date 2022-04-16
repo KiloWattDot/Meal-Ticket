@@ -37,6 +37,7 @@ function Fav({setHolder}) {
 		}
 
 		window.location.reload();
+		// navigate (`/favorites`)
 		
 	};
 
@@ -59,12 +60,12 @@ function Fav({setHolder}) {
     id: food.resid,
     image_url: food.image_url,
     foodname: food.foodname,
-	rating: food.rating,
-	numOfReviews: food.numOfReviews,
-	// price: food.price,
-	tag: food.tag,
-	location: food.location,
-	phone: food.phone
+	// rating: food.rating,
+	// numOfReviews: food.numOfReviews,
+	// // price: food.price,
+	// tag: food.tag,
+	// location: food.location,
+	// phone: food.phone
   
   }));
   

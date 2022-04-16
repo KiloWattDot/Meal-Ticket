@@ -18,7 +18,7 @@ const Home = () => {
 return(
 
 <div>
-(<Container fluid className="p-5">
+<Container fluid className="p-5">
   <Row className=" shadow-lg p-4 mb-4 bg-white border border-5 border-dark">
     <Col>
     <img
