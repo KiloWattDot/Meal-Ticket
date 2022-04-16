@@ -7,11 +7,6 @@ export const QUERY_FAV = gql`
     resid
     image_url
     foodname
-    rating
-    numOfReviews
-    tag
-    location
-    phone
   }
 }
 `;

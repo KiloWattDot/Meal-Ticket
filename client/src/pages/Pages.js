@@ -17,14 +17,15 @@ function Pages() {
   
   const [holder, setHolder] = useState([])
   const [test, setTest] = useState('Test')
+  const [search, setSearch] = useState()
 
   return (
       <Router>
-          <Navbar  />
+          <Navbar setSearch={setSearch}  />
           <MenuProvider >
       <Routes>
        <Route path="/" element={<Home/>} />
-       <Route path="/results/:id*" element={<Results setHolder={setHolder} />} />
+       <Route path="/results/:id" element={<Results setHolder={setHolder} search={search} />} />
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<Signup />} />
        <Route path="/choice/:id" element={<Choice holder={holder}  />} />

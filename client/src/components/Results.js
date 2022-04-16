@@ -49,13 +49,13 @@ const Results = ({ setHolder }) => {
 					resid: foodToSave.id,
 					image_url: foodToSave.image_url,
 					foodname: foodToSave.foodname,
-					rating: foodToSave.rating,
-					numOfReviews: foodToSave.numOfReviews,
+					// rating: foodToSave.rating,
+					// numOfReviews: foodToSave.numOfReviews,
 					// price: foodToSave.price,
-					tag: foodToSave.tag,
-					// location: "location",
-					location: foodToSave.location[0],
-					phone: foodToSave.phone
+					// tag: foodToSave.tag,
+					// // location: "location",
+					// location: foodToSave.location[0],
+					// phone: foodToSave.phone
 				},
 			});
 			// alert("Added to FAV")
@@ -81,9 +81,10 @@ const Results = ({ setHolder }) => {
 			)
 
 			.then((data) => {
-				
+				//  console.log(data)
+				//  console.log(data.data)
 				console.log(data.data.businesses);
-				
+				//  console.log(data.data.businesses[0].name)
 
 				const foodData = data.data.businesses.map((food) => ({
 					id: food.id,
@@ -100,7 +101,7 @@ const Results = ({ setHolder }) => {
 				}));
 
 				setResults(foodData);
-				
+				// console.log(results);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -109,13 +110,13 @@ const Results = ({ setHolder }) => {
 
 	useEffect(() => {
 		getResults(params.id);
-	}, []);
+	}, [params.id]);
 
 	return (
 		<Container fluid className="px-5">
 			<h1>{params.id}</h1>
 
-			
+			{/* map fuction to display the results */}
 			{results.map((item, index) => {
 				return (
 					<div key={index}>
@@ -150,14 +151,14 @@ const Results = ({ setHolder }) => {
 									</div>
 									<p></p>
 								</div>
-								
+								{/* <p>{item.location.address1}</p> */}
 								<Button
 									onClick={() => handleSaveFood(item.id)}
 									variant="warning"
 									className="star-five"
 								>
 									Fav
-									<img src={filled ? filledStar : unfilled} className="filled" />
+									{/* <img src={filled ? filledStar : unfilled} className="filled" /> */}
 								</Button>
 								<Link to={'/choice/' + item.id}>
 									<Button onClick={() => handleSelect(item.id)} variant="warning">SELECT</Button>

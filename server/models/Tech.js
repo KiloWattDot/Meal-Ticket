@@ -12,24 +12,6 @@ const techSchema = new Schema({
   foodname: {
     type: String,
   },
-  rating: {
-    type: Number,
-  },
-  numOfReviews: {
-    type: Number,
-  },
-  price: {
-    type: String,
-  },
-  tag: {
-    type: String,
-  },
-  location: {
-    type: String,
-  },
-  phone: {
-    type: String,
-  },
 });
 
 const Tech = model('Tech', techSchema);

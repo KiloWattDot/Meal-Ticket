@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const CREATE_Rest = gql`
-mutation SavedRest($resid: String!, $image_url: String, $foodname: String, $rating: Int, $numOfReviews: Int, $tag: String, $location: String, $phone: String) {
-	savedRest(resid: $resid, image_url: $image_url, foodname: $foodname, rating: $rating, numOfReviews: $numOfReviews, tag: $tag, location: $location, phone: $phone) {
+mutation SavedRest($resid: String!, $image_url: String, $foodname: String) {
+	savedRest(resid: $resid, image_url: $image_url, foodname: $foodname) {
 	  resid
 	  image_url
 	}
