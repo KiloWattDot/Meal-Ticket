@@ -48,8 +48,8 @@ export const GET_CHECKOUT = gql`
 export const GET_USER = gql`
   {
     user {
-      firstName
-      lastName
+      firstname
+      lastname
       orders {
         _id
         purchaseDate
