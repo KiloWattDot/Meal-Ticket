@@ -42,7 +42,7 @@ function Navbar1() {
 					<a href="/favorites">
 						<li>Favorites</li>
 					</a>
-					<a href="/cart">
+					<a href="/checkout">
 						<li>Cart</li>
 					</a>
 					<a href="/login">
