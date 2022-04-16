@@ -57,7 +57,7 @@ function Navbar1() {
 							value={searchInput}
 							onChange={(e) => setSearchInput(e.target.value)}
 							type="search"
-							placeholder="Enter zip code"
+							placeholder="Enter zip code or city"
 							className="me-2"
 							aria-label="Search"
 						/>
