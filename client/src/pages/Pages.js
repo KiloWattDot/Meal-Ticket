@@ -5,7 +5,7 @@ import Results from "../components/Results"
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import Choice from '../components/Choice';
-import Navbar from '../components/NavBar/Navbar';
+import Navbar from '../components/NavBar/Navbarcopy';
 import Fav from '../components/Fav';
 import StripeContainer from '../components/StripeContainer';
 import Cart from '../components/Cart';
