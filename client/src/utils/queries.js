@@ -5,14 +5,19 @@ export const QUERY_FAV = gql`
   savedRest {
     _id
     resid
-    imageurl
-    name
+    image_url
+    foodname
+    rating
+    numOfReviews
+    tag
+    location
+    phone
   }
 }
 `;
 
 export const GET_ITEMS = gql`
-  query getitems($item: ID) {
+  query getItems($item: ID) {
     items(item: $item) {
       _id
       name
@@ -22,6 +27,7 @@ export const GET_ITEMS = gql`
     }
   }
 `;
+
 
 export const GET_ALL_ITEMS = gql`
   {
@@ -63,3 +69,4 @@ export const GET_USER = gql`
     }
   }
 `;
+

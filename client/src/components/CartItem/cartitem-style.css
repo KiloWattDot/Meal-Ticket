@@ -1,0 +1,41 @@
+
+  .menu-pics {
+    width: 30%;
+  }
+
+
+
+  input[type=number] {
+      font-size: 100%;
+      width: 20%;
+      background-color: goldenrod;
+      color: white !important;
+      font-weight: bold;
+      border-radius: 6px;
+  }
+
+  .cart-items {
+    flex: 1;
+    /* margin: 0% 10%; */
+    font-size: 20px;
+    font-weight: bold;
+
+  }
+
+  .cart-item-price {
+        padding: 2% 0%;;
+  }
+
+  .cart-item-qty {
+    padding: 2% 2%;;
+  }
+
+  .input-number {
+      margin: 0% 8%;
+  }
+
+  .trashcan {
+      cursor: pointer;
+      width: 8%;
+      height: 6% !important;
+  }

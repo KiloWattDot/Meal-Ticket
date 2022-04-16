@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { useMenuContext } from '../../utils/MenuContext'
 import { GET_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
-// import Auth from '../../utils/auth'
+import { Link } from "react-router-dom";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import { Offcanvas, Button, Form } from "react-bootstrap";
+import { Offcanvas, Form } from "react-bootstrap";
 import './ordermod-style.css'
 import {FaMapPin} from "react-icons/fa";
 import {FaShoppingCart} from "react-icons/fa"
@@ -17,17 +17,17 @@ import map from "../../image/themap.png";
 
 
 
-const Cart = () => {
+const Cart = ({holder}) => {
+    console.log('This is the prop', holder)
+    const [containChoice, setContainChoice] = useState([])
     const [state, dispatch] = useMenuContext();
     const [getCheckout, { data }] = useLazyQuery(GET_CHECKOUT);
   
-    // useEffect(() => {
-    //   if (data) {
-    //     stripePromise.then((res) => {
-    //       res.redirectToCheckout({ sessionId: data.checkout.session });
-    //     });
-    //   }
-    // }, [data]);
+    useEffect(() => {
+
+      setContainChoice(holder)
+    
+    }, []);
   
     useEffect(() => {
       async function getCart() {
@@ -89,19 +89,20 @@ const Cart = () => {
           
           <Offcanvas   show={state.cartOpen} onHide={handleClose} {...props}>
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+              <Offcanvas.Title>MealTicket</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                   <div>
-                      <h1>American Deli</h1>
-                      <img src={map} className="map"></img>
+       
+                      <h1>{containChoice.foodname}</h1>
+                      <img src={containChoice.image_url} className="map"></img>
                       <p className="loctext-ofc">
       
-                          <FaMapPin />3695 Cascade Rd. , Suite M, Atlanta, GA 30331
+                          <FaMapPin /> {containChoice.location}
                       </p>
                       <hr></hr>
                   
-
+                      <h1>Your Items</h1>
                       <div className="cart-box-ofc">
                       {state.cart.length ? (
                           <div>
@@ -118,14 +119,9 @@ const Cart = () => {
                                       </Form.Group>
                                   </Form>
 
-                                  <Form>
-                                      <Button
-                                          type="submit"
-                                          onClick={<Checkout />}
-                                          className="placeOrder-btn-ofc"
-                                          text="Place Order"
-                                      >Place Order</Button>
-                                  </Form>
+                                  <Link to="/checkout" className="btn placeOrder-btn-ofc btn-primary ">Place Order</Link>
+
+
                                   <div className="price-ofc">
                                       <div className="total-ofc">
                                       <p>Total</p>
@@ -159,6 +155,7 @@ const Cart = () => {
 
 return (
     <>
+
       {['end'].map((placement, idx) => (
         <OffCanvasCart key={idx} placement={placement} name={placement} className="displayOrder-ofc" />
       ))}

@@ -4,9 +4,6 @@ import {
 	Row,
 	Col,
 	Container,
-	NavDropdown,
-	Form,
-	FormControl,
 	Button,
 } from 'react-bootstrap';
 import unfilled from '../image/empty-star.jpg';
@@ -18,21 +15,22 @@ import axios from 'axios';
 import { useMutation } from '@apollo/client';
 import { CREATE_Rest } from '../utils/mutations';
 
-const Results = ({setHolder}) => {
+const Results = ({ setHolder }) => {
 
 	const navigate = useNavigate();
-	
+
 	const [results, setResults] = useState([]);
 
-	const [saveBook, { error }] = useMutation(CREATE_Rest);
+	const [savedRest, { error }] = useMutation(CREATE_Rest);
 
 	const [filled, setFilled] = useState(false);
 
 	let params = useParams();
 
 	const handleSaveFood = async (foodId) => {
-		// find the book in `searchedBooks` state by the matching id
+
 		const foodToSave = results.find((food) => food.id === foodId);
+		
 		setFilled((prev) => !prev);
 
 		// // get token
@@ -43,12 +41,19 @@ const Results = ({setHolder}) => {
 		// }
 
 		try {
-			const { data } = await saveBook({
+			const { data } = await savedRest({
 				// variables:   {id, image_url, foodname}=foodToSave ,
 				variables: {
 					resid: foodToSave.id,
-					imageurl: foodToSave.image_url,
-					name: foodToSave.foodname,
+					image_url: foodToSave.image_url,
+					foodname: foodToSave.foodname,
+					rating: foodToSave.rating,
+					numOfReviews: foodToSave.numOfReviews,
+					// price: foodToSave.price,
+					tag: foodToSave.tag,
+					// location: "location",
+					location: foodToSave.location[0],
+					phone: foodToSave.phone
 				},
 			});
 			// alert("Added to FAV")
@@ -59,13 +64,13 @@ const Results = ({setHolder}) => {
 		}
 	};
 
-	const handleSelect = (id) =>{ 
+	const handleSelect = (id) => {
 
 		const foodSelected = results.find((food) => food.id === id);
-  
+
 		setHolder(foodSelected)
-		navigate (`/choice/`+id)
-	  };
+		navigate(`/choice/` + id)
+	};
 
 	const getResults = async (id) => {
 		await axios
@@ -74,10 +79,9 @@ const Results = ({setHolder}) => {
 			)
 
 			.then((data) => {
-				//  console.log(data)
-				//  console.log(data.data)
+				
 				console.log(data.data.businesses);
-				//  console.log(data.data.businesses[0].name)
+				
 
 				const foodData = data.data.businesses.map((food) => ({
 					id: food.id,
@@ -94,7 +98,7 @@ const Results = ({setHolder}) => {
 				}));
 
 				setResults(foodData);
-				console.log(results);
+				
 			})
 			.catch((err) => {
 				console.log(err);
@@ -103,13 +107,13 @@ const Results = ({setHolder}) => {
 
 	useEffect(() => {
 		getResults(params.id);
-	}, [params.id]);
+	}, []);
 
 	return (
 		<Container fluid className="px-5">
 			<h1>{params.id}</h1>
 
-			{/* map fuction to display the results */}
+			
 			{results.map((item, index) => {
 				return (
 					<div key={index}>
@@ -144,14 +148,14 @@ const Results = ({setHolder}) => {
 									</div>
 									<p></p>
 								</div>
-								{/* <p>{item.location.address1}</p> */}
+								
 								<Button
 									onClick={() => handleSaveFood(item.id)}
 									variant="warning"
 									className="star-five"
 								>
 									Fav
-								 <img src= {filled ? filledStar : unfilled} className="filled" />
+									<img src={filled ? filledStar : unfilled} className="filled" />
 								</Button>
 								<Link to={'/choice/' + item.id}>
 									<Button onClick={() => handleSelect(item.id)} variant="warning">SELECT</Button>

@@ -1,85 +1,60 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import {
-	Nav,
-	Container,
-	NavDropdown,
-	Form,
-	FormControl,
-	Button,
-} from 'react-bootstrap';
-import logo from './img/MealTicket-Logo(nobg).png';
-import './navbar.css';
+import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button  } from 'react-bootstrap';
 
-function Navbar() {
-	const [searchInput, setSearchInput] = useState('');
 
-	const navigate = useNavigate();
+const AppNavbar = () => {
 
-	const handleClick = () => navigate(`/results/` + searchInput);
+const [searchInput, setSearchInput] = useState('');
 
-	let [toggle, setToggle] = useState(false);
+const navigate = useNavigate();
 
-	// This is a handler that we will reference in our `onClick` attribute later
-	const handleToggle = () => {
-		setToggle(!toggle);
-		console.log(`click`);
-	};
+  
+const handleClick = () => {navigate (`/results/`+searchInput)};
+  
 
-	return (
-		<div>
-			<a href="/"><img className="logo" src={logo} alt="Meal Ticket Logo"></img></a>
-			<nav className="">
-				<ul className="navList" id={toggle ? 'active' : ''}>
-					<a href="/">
-						<li>Home</li>
-					</a>
-					<a href="#">
-						<li>Order Now </li>
-					</a>
-					<a href="/favorites">
-						<li>Favorites</li>
-					</a>
-					<a href="/cart">
-						<li>Cart</li>
-					</a>
-					<a href="/login">
-						<li>Login</li>
-					</a>
-					<a href="/signup">
-						<li>Join</li>
-					</a>
-					<Form className="d-flex">
-						<FormControl
-							name="searchInput"
-							value={searchInput}
-							onChange={(e) => setSearchInput(e.target.value)}
-							type="search"
-							placeholder="Enter zip code"
-							className="me-2"
-							aria-label="Search"
-						/>
-						<Button
-							onClick={handleClick}
-							type="submit"
-							variant="outline-warning"
-						>
-							Search Nearby
-						</Button>
-					</Form>
-					
-				</ul>
+  return (
+    <Navbar bg="dark" expand="lg">
+  
+  <Container fluid>
+      <Navbar.Brand as={NavLink} to="/" className='display-1 text-warning'>MEAL TICKET</Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarScroll" />
+      <Navbar.Collapse id="navbarScroll">
+        <Nav
+          className="me-auto my-2 my-lg-0"
+          style={{ maxHeight: '100px' }}
+          navbarScroll
+        >
+          <Nav.Link as={NavLink} to="/favorites" className='text-light'>Favs</Nav.Link>
+          <Nav.Link as={NavLink} to="/cart/:id" className='text-light'>Cart</Nav.Link>
+          <Nav.Link as={NavLink} to="/fav" className='text-light'>Order Now</Nav.Link>
 
-				<div className="menu" onClick={handleToggle}>
-					<div className="menu-line"></div>
-					<div className="menu-line"></div>
-					<div className="menu-line"></div>
-				</div>
-			</nav>
-		</div>
-	);
-}
+          <NavDropdown title={<span className='text-light'>Enter</span>} id="navbarScrollingDropdown">
+            
+            <NavDropdown.Item as={NavLink} to="/login">Login</NavDropdown.Item>
+            
+            
+            <NavDropdown.Item as={NavLink} to="/signup">Signup</NavDropdown.Item>
+           
+          </NavDropdown>
+          
+        </Nav>
+        <Form  className="d-flex"  >
+          <FormControl
+           name="searchInput"
+           value={searchInput}
+           onChange={(e) => setSearchInput(e.target.value)}
+            type="search"
+            placeholder="Enter zip code"
+            className="me-2"
+            aria-label="Search"
+          />
+          <Button onClick={handleClick} type="submit" variant="outline-warning">Search Nearby</Button>
+        </Form>
+      </Navbar.Collapse>
+    </Container>
+    
+  </Navbar>
+  )}
 
-export default Navbar;
-
-// {toggle ? "navList" : "hide"}
+export default AppNavbar;

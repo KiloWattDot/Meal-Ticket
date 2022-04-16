@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import { useEffect, useState } from 'react';
 // import logo from "../../image/MealTicket-Logo(no bg).png"
 import "./checkout-style.css";
 import wings from '../../image/wingsnfries.jpeg'
 import trash from '../../image/trash.png'
 import { Container, Form, Button, Modal, Tab, Dropdown, DropdownButton } from "react-bootstrap";
-import map from "../../image/themap.png";
+// import map from "../../image/";
 import {FaMapPin} from "react-icons/fa";
-import {FaRegClock} from "react-icons/fa";
 import {FaRegCreditCard} from "react-icons/fa";
 import {FaTag} from "react-icons/fa";
 import {FaTrashAlt} from "react-icons/fa";
 import moment from 'moment' 
+import { useLazyQuery } from '@apollo/client';
+import { useMenuContext } from '../../utils/MenuContext'
+import { GET_CHECKOUT } from '../../utils/queries';
+import { idbPromise } from '../../utils/helpers';
+import CartItem from '../../components/CartItem';
+import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 
 
 
-function Checkout() {
+
+function Checkout({holder}) {
   const [order, setOrder] = useState("");
   const [showLaterModal, setshowLaterModal] = useState(false);
   const [showNowrModal, setshowNowModal] = useState(false);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showPromoModal, setShowPromoModal] = useState(false);
   const [show, setShow] = useState(false);
+  console.log('This is the prop', holder)
+  const [containChoice, setContainChoice] = useState([])
+  const [state, dispatch] = useMenuContext();
+  const [getCheckout, { data }] = useLazyQuery(GET_CHECKOUT);
 
   const handlePromoClose = () => setShowPromoModal(false);
   const handleLaterClose = () => setshowLaterModal(false);
@@ -32,6 +42,48 @@ function Checkout() {
   let fourthDay = moment().add(3, 'days').calendar();
   let fifthDay = moment().add(4, 'days').calendar();
   
+  useEffect(() => {
+
+    setContainChoice(holder)
+  
+  }, []);
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise('cart', 'get');
+      dispatch({ type: ADD_MULTIPLE_TO_CART, items: [...cart] });
+    }
+
+    if (!state.cart.length) {
+      getCart();
+    }
+  }, [state.cart.length, dispatch]);
+
+
+  
+  function calculateTotal() {
+    let sum = 0;
+    let tax = 2.99
+    state.cart.forEach((item) => {
+      sum += item.price * item.purchaseQuantity + tax;
+    });
+    return sum.toFixed(2);
+  }
+
+  function submitCheckout() {
+    const itemIds = [];
+
+    state.cart.forEach((item) => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        itemIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { items: itemIds },
+    });
+  }
+
 
 
   const handleSubmit = (e) => {
@@ -53,10 +105,10 @@ function Checkout() {
     <Container id="checkout">
        
         <div className="displayOrder">
-            <h1>American Deli</h1>
-            <img src={map} className="map"></img>
+            <h1>Checkout </h1>
+            <img src={containChoice.image_url} className="map"></img>
             <p className="loctext">
-              <FaMapPin /> 695 Cascade Rd. , Suite M, Atlanta, GA 30331
+              <FaMapPin /> {containChoice.location}
             </p>
             <hr></hr>
             <div className="pickup">
@@ -110,11 +162,10 @@ function Checkout() {
                 {/* FIX YOUR ITEMS FORMATTING */}
             <div className="cart-box">
               <h3 className="your-items">Your items</h3>
-              <div className="pickup">
-                <img className="item-image" src={wings}></img>
-                <p>Wings Meal (Fries and Drink)</p>
-                {/* CHANGE THE TRASH FUNCTION */}
-                <FaTrashAlt className="trash-icon" src={trash} onClick={() => setshowNowModal(true)} />
+              <div className="flex-row">
+              {state.cart.map((item) => (
+                  <CartItem key={item._id} item={item} />
+              ))}
               </div>
             </div>
 
@@ -154,13 +205,13 @@ function Checkout() {
                 <p>$2.99</p>
               </div>
             </div>
-          <div className="price">
-              <div className="total">
+            <div className="price">
+                <div className="total">
                 <p>Total</p>
-              </div>
-              <div className="total-amnt">
-                <p>$2.99</p>
-              </div>
+                </div>
+                <div className="total-amnt">
+                <p>${calculateTotal()}</p>
+            </div>
             </div>
             
           </div>
