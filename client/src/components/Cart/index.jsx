@@ -5,9 +5,9 @@ import { useMenuContext } from '../../utils/MenuContext'
 import { GET_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
-// import Auth from '../../utils/auth'
+import { Link } from "react-router-dom";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import { Offcanvas, Button, Form } from "react-bootstrap";
+import { Offcanvas, Form } from "react-bootstrap";
 import './ordermod-style.css'
 import {FaMapPin} from "react-icons/fa";
 import {FaShoppingCart} from "react-icons/fa"
@@ -102,7 +102,7 @@ const Cart = ({holder}) => {
                       </p>
                       <hr></hr>
                   
-
+                      <h1>Your Items</h1>
                       <div className="cart-box-ofc">
                       {state.cart.length ? (
                           <div>
@@ -119,14 +119,9 @@ const Cart = ({holder}) => {
                                       </Form.Group>
                                   </Form>
 
-                                  <Form>
-                                      <Button
-                                          type="submit"
-                                          onClick={<Checkout />}
-                                          className="placeOrder-btn-ofc"
-                                          text="Place Order"
-                                      >Place Order</Button>
-                                  </Form>
+                                  <Link to="/checkout" className="btn placeOrder-btn-ofc btn-primary ">Place Order</Link>
+
+
                                   <div className="price-ofc">
                                       <div className="total-ofc">
                                       <p>Total</p>
