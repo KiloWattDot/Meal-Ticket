@@ -36,8 +36,8 @@ function Fav({setHolder}) {
 			console.error(err);
 		}
 
-		// window.location.reload();
-		navigate (`/favorites`)
+		window.location.reload();
+		// navigate (`/favorites`)
 		
 	};
 

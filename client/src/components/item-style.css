@@ -17,6 +17,7 @@
        border: 2px solid goldenrod;
        background-color: black;
        color: white;
+     
    }
    
    
@@ -27,7 +28,7 @@
        cursor: pointer;
        transition: 0.2 ease;
        margin: 32px 124px;
-   
+       border-radius: 12px !important;
    }
    .item img:hover{
        transform: scale(1.04);

@@ -48,6 +48,7 @@ return (
       <img
           alt={name}
           src={`/menu-pics/${image}`}
+      
         />
       </Link>
       <h4 className="item-title">{name}</h4>
