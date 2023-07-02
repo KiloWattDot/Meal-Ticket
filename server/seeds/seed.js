@@ -1,9 +1,11 @@
 const db = require('../config/connection');
 const { User, Item} = require('../models')
+// importing User/Item models for seed
 
 db.once('open', async () => {
 
     await Item.deleteMany();
+    // Delete new items
     const items = await Item.insertMany([
         {
             name: 'Burger Combo',
@@ -127,11 +129,14 @@ db.once('open', async () => {
           },
 
     ]);
+    // Add default items
 
 
     console.log('-------------------Item seeded--------------------------------------------------------');
+    
 
     await User.deleteMany();
+    // Delete any added users
 
     await User.create({
       firstName: 'Paula',
@@ -151,6 +156,7 @@ db.once('open', async () => {
       email: 'ReggieB@testmail.com',
       password: 'password12345'
     });
+    // Add Default users back
   
     console.log('-------------------users seeded--------------------------------------------------');
   

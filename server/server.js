@@ -19,7 +19,13 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(cors())
+app.use(cors(
+	{
+		origin: ["https://meal-ticket-ten.vercel.app/"],
+		methods: ["POST", "GET"],
+		credentials: true
+	}
+))
 
 app.post("/payment", cors(), async (req, res) => {
 	let { amount, id } = req.body

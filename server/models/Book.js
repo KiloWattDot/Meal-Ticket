@@ -5,11 +5,13 @@ const bookSchema = new Schema({
   authors: [
     {
       type: String,
+      // Data type that will be passed into "authors" 
     },
   ],
   description: {
     type: String,
     required: true,
+     // Data type that will be passed into "description" and it is required on the document 
   },
   // saved book id from GoogleBooks
   bookId: {
