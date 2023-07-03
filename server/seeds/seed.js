@@ -139,8 +139,8 @@ db.once('open', async () => {
     // Delete any added users
 
     await User.create({
-      firstName: 'Paula',
-      lastName: 'Leverret',
+      firstname: 'Paula',
+      lastname: 'Leverret',
       email: 'paulaLev@testmail.com',
       password: 'password12345',
       orders: [
@@ -151,8 +151,8 @@ db.once('open', async () => {
     });
   
     await User.create({
-      firstName: 'Reginald',
-      lastName: 'Johnson',
+      firstname: 'Reginald',
+      lastname: 'Johnson',
       email: 'ReggieB@testmail.com',
       password: 'password12345'
     });
